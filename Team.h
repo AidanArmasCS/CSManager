@@ -30,7 +30,7 @@ public:
 
     // TEAM MANAGEMENT
     void addPlayer(const Player &newPlayer);
-    bool removePlayer(const Player &playerName);
+    bool removePlayer(const string &playerName);
     void displayRoster() const;
     string getName() const;
 
@@ -40,6 +40,7 @@ public:
     void recordWin();
     void recordLoss();
     void displayRecord();
+
 };
 
 

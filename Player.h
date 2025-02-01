@@ -30,6 +30,11 @@ public:
 
     void displayPlayer() const;
 
+    //Player Stats:
+    int playerAccurancy(const string &playerName);
+    int playerEntrying(const string &playerName);
+
+
 
 };
 
