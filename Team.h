@@ -7,34 +7,34 @@
 
 #include <vector>
 #include <string>
-#include "player.h"
+#include "Player.h"
 
 using namespace std;
 
 
 
-class team {
+class Team {
 private:
     string name;
     vector<Player> roster;
     int wins;
     int losses;
+    string nationality;
 
 
 public:
     //Constructor
-    team(const string &teamName);
+    Team(const string &teamName, const string &usernationality);
     //Destructor
-    ~team();
+    ~Team();
 
     // TEAM MANAGEMENT
     void addPlayer(const Player &newPlayer);
-    bool removePlayer(const string &playerName);
+    bool removePlayer(const Player &playerName);
     void displayRoster() const;
+    string getName() const;
 
-    void addTeam(const string &teamName, const string &nationality);
-    bool removeTeam(const string &teamName);
-    void displayTeams() const;
+
 
     //WIN LOSS RECORD
     void recordWin();
