@@ -33,6 +33,7 @@ public:
     bool removePlayer(const string &playerName);
     void displayRoster() const;
     string getName() const;
+    string getNationality() const;
 
 
 

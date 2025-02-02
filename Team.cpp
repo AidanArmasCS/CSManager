@@ -24,6 +24,9 @@ Team::~Team() {}
 string Team::getName() const { // METHOD FOR RETURNING TEAM NAME
     return name;
 }
+string Team::getNationality() const {
+    return nationality;
+}
 
 
 void Team::addPlayer(const Player &newPlayer) {
@@ -43,7 +46,7 @@ bool Team::removePlayer(const string &playerName) {
             for (auto it = roster.begin(); it != roster.end(); ++it) {
                 if (it->getName() == playerName) {
                     roster.erase(it);
-                    cout << playerName << " has been removed from " << name << endl;
+                    cout << playerName << " has been removed from " << name << "\n";
                     return true;
         }
     }

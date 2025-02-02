@@ -57,7 +57,8 @@ void displayTeams(vector<Team> &teams) {
     }
     cout << "List of Current Teams: " << endl;
     for (auto & team : teams) {
-        cout << team.getName() << endl;
+        cout << team.getName() << " | ";
+        cout << team.getNationality() << endl;
     }
 }
 
@@ -101,6 +102,109 @@ void addPlayertoTeam(vector<Team> &teams) {
     cout << "Error: Team '" << teamName << "' not found.\n";
 }
 
+void removePlayerTeam(vector<Team> &teams) {
+    if (teams.empty()) {
+        cout << "No teams available. Create a team first.\n";
+        return;
+    }
+
+    cout << "Enter the name of the team to remove a player to: ";
+    cin.ignore();
+    string teamName;
+    getline(cin, teamName);
+
+    cout << "Enter the player you would like to remove: ";
+    string playerName;
+    getline(cin, playerName);
+    cout << endl;
+
+    for (auto &team: teams) {
+        if (team.getName() == teamName) {
+            team.removePlayer(playerName);
+            return;
+        }
+    }
+    cout << "Team has not been found, try again." << endl;
+}
+
+void displayTeamRoster(vector<Team> &teams) {
+    if (teams.empty()) {
+        cout << "No teams available. Create a team first.\n";
+        return;
+    }
+
+    cout << "Enter the name of the team's roster you would like to view: ";
+    cin.ignore();
+    string teamName;
+    getline(cin, teamName);
+    cout << endl;
+
+    for (auto &team: teams) {
+        if (team.getName() == teamName) {
+            team.displayRoster();
+            return;
+        }
+    }
+
+}
+
+void simulateMatch(vector<Team> &teams) {
+    if (teams.empty()) {
+        cout << "No teams available. Create a team first.\n";
+        return;
+    }
+
+    cout << "Enter the name of the teams you want to play: ";
+    cin.ignore();
+    string userName1;
+    string userName2;
+    Team *teamName1;
+    Team *teamName2;
+    cin >> userName1;
+    cin >> userName2;
+    cout << endl;
+    int one = 0;
+    int two = 0;
+
+    for (auto &team: teams) {
+        if (team.getName() == userName1) {
+            teamName1 = &team;
+            one++;
+        }
+        else if (team.getName() == userName2) {
+            teamName2 = &team;
+            two++;
+        }
+    }
+
+    if (one != 1 || two != 1) {
+       cout << "One of the two teams isn't an active team";
+        return;
+    }
+
+    Match sim(teamName1, teamName2);
+    sim.simulateMatch();
+}
+
+void displayTeamRecord(vector<Team> &teams) {
+    if (teams.empty()) {
+        cout << "No teams available. Create a team first.\n";
+        return;
+    }
+
+    cout << "Enter the name of the team's record you would like to view: ";
+    cin.ignore();
+    string teamName;
+    getline(cin, teamName);
+    cout << endl;
+
+    for (auto &team: teams) {
+        if (team.getName() == teamName) {
+            team.displayRecord();
+            return;
+        }
+    }
+}
 
 
 
@@ -120,7 +224,7 @@ int main() {
         cout << "5. Remove Player from Team\n";
         cout << "6. Display Team Roster\n";
         cout << "7. Simulate Match\n";
-        cout << "8. Display Match Results\n";
+        cout << "8. Display Team Record\n";
         cout << "0. Exit\n";
         cout << "Enter your choice: ";
 
@@ -140,13 +244,20 @@ int main() {
             case 4:
                 addPlayertoTeam(teams);
                 break;
-
-
-
-
-
+            case 5:
+                removePlayerTeam(teams);
+                break;
+            case 6:
+                displayTeamRoster(teams);
+                break;
+            case 7:
+                simulateMatch(teams);
+                break;
+            case 8:
+                displayTeamRecord(teams);
+                break;
+            case 0:
+                return 0;
         }
     }
-
-    return 0;
 }
