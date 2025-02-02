@@ -226,7 +226,7 @@ int main() {
         cout << "7. Simulate Match\n";
         cout << "8. Display Team Record\n";
         cout << "0. Exit\n";
-        cout << "Enter your choice: ";
+        cout << "Enter your choice:  ";
 
         int choice;
         cin >> choice;
