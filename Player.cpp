@@ -9,28 +9,48 @@
 
 using namespace std;
 
-Player::Player(const string &playerName, const string &playerRole, const string &playerNationality) {
-    name = playerName;
-    role = playerRole;
-    nationality = playerNationality;
+Player::Player(const string &playerName, const string &playerRole, const string &playerNationality,
+               int aim, int movement, int gameSense, int teamwork,
+               int entrying, int awp, int clutch, int consistency) {
+    this->name = playerName;
+    this->role = playerRole;
+    this->nationality = playerNationality;
+    this->aim = aim;
+    this->movement = movement;
+    this->gameSense = gameSense;
+    this->teamwork = teamwork;
+    this->entrying = entrying;
+    this->awp = awp;
+    this->clutch = clutch;
+    this->consistency = consistency;
 }
 
 Player::~Player() {}
 
-// PLAYER MANAGEMENT METHODS
+//GETTERS
+string Player::getName() const { return name; }
+string Player::getRole() const { return role; }
+string Player::getNationality() const { return nationality; }
 
-string Player::getName() const {
-    return name;
+
+int Player::getOverallRating() const {
+    int overallRating;
+    overallRating = (aim + movement + gameSense + teamwork + entrying + awp + clutch + consistency) / 9;
+    overallRating += 14;
+    if (overallRating >= 99) {
+        overallRating = 99;
+        return overallRating;
+    }
+    return overallRating;
 }
 
-string Player::getRole() const {
-    return role;
-}
 
-string Player::getNationality() const {
-    return nationality;
-}
 
+//PRINT INFO OF PLAYER
 void Player::displayPlayer() const {
-    cout << "Player: " << name << " | Role: " << role << " | Nationality: " << nationality << endl;
+        cout << "Player: " << name << " | Role: " << role << " | Nationality: " << nationality << endl;
+        cout << "Skills:\n";
+        cout << "Aim: " << aim << ", Movement: " << movement << ", Game Sense: " << gameSense << ", Teamwork: " << teamwork << endl;
+        cout << "Entrying: " << entrying << ", AWP: " << awp << ", Clutch: " << clutch << ", Consistency: " << consistency << endl;
+        cout << "Overall Rating: " << getOverallRating() << endl;
 }

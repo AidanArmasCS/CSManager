@@ -78,6 +78,7 @@ void addPlayertoTeam(vector<Team> &teams) {
             string playerName;
             string role;
             string nationality;
+            int aim, movement, gameSense, teamwork, entrying, awp, clutch, consistency;
 
             cout << "Enter player name: ";
             getline(cin, playerName);
@@ -89,13 +90,76 @@ void addPlayertoTeam(vector<Team> &teams) {
             cout << "Enter Player Nationality: ";
             getline(cin, nationality);
 
+            //RATINGS
+            cout << "Enter Aim (0-100): ";
+            while (!(cin >> aim) || aim < 0 || aim > 100) {
+                cout << "Invalid input. Enter a number between 0-100: ";
+                cin.clear();
+                cin.ignore(10000, '\n');
+            }
+
+            cout << "Enter Movement (0-100): ";
+            while (!(cin >> movement) || movement < 0 || movement > 100) {
+                cout << "Invalid input. Enter a number between 0-100: ";
+                cin.clear();
+                cin.ignore(10000, '\n');
+            }
+
+            cout << "Enter Game Sense (0-100): ";
+            while (!(cin >> gameSense) || gameSense < 0 || gameSense > 100) {
+                cout << "Invalid input. Enter a number between 0-100: ";
+                cin.clear();
+                cin.ignore(10000, '\n');
+            }
+
+            cout << "Enter Teamwork (0-100): ";
+            while (!(cin >> teamwork) || teamwork < 0 || teamwork > 100) {
+                cout << "Invalid input. Enter a number between 0-100: ";
+                cin.clear();
+                cin.ignore(10000, '\n');
+            }
+
+            cout << "Enter Entrying (0-100): ";
+            while (!(cin >> entrying) || entrying < 0 || entrying > 100) {
+                cout << "Invalid input. Enter a number between 0-100: ";
+                cin.clear();
+                cin.ignore(10000, '\n');
+            }
+
+            cout << "Enter AWP Skill (0-100): ";
+            while (!(cin >> awp) || awp < 0 || awp > 100) {
+                cout << "Invalid input. Enter a number between 0-100: ";
+                cin.clear();
+                cin.ignore(10000, '\n');
+            }
+
+            cout << "Enter Clutch Ability (0-100): ";
+            while (!(cin >> clutch) || clutch < 0 || clutch > 100) {
+                cout << "Invalid input. Enter a number between 0-100: ";
+                cin.clear();
+                cin.ignore(10000, '\n');
+            }
+
+            cout << "Enter Consistency (0-100): ";
+            while (!(cin >> consistency) || consistency < 0 || consistency > 100) {
+                cout << "Invalid input. Enter a number between 0-100: ";
+                cin.clear();
+                cin.ignore(10000, '\n');
+            }
+
+            // Clear leftover newline after last cin input
+            cin.ignore();
+
             if (playerName.empty() || role.empty() || nationality.empty()) {
                 cout << "Error: Player details cannot be empty.\n";
                 return;
             }
 
-            Player newPlayer(playerName, role, nationality);
+            Player newPlayer(playerName, role, nationality,
+                             aim, movement, gameSense, teamwork,
+                             entrying, awp, clutch, consistency);
             team.addPlayer(newPlayer);
+            cout << playerName << " added successfully to " << teamName << "!\n";
             return;
         }
     }

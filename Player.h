@@ -18,21 +18,31 @@ private:
     string nationality;
     string role;
 
+    int aim;
+    int movement;
+    int gameSense;
+    int teamwork;
+    int entrying;
+    int awp;
+    int clutch;
+    int consistency;
+
+
 
 public:
 
-    Player(const string &playerName, const string &playerRole, const string &playerNationality);
+    Player(const string &playerName, const string &playerRole, const string &playerNationality,
+           int aim, int movement, int gameSense, int teamwork,
+           int entrying, int awp, int clutch, int consistency);
     ~Player();
 
     string getName() const;
     string getRole() const;
     string getNationality() const;
+    int getOverallRating() const;
 
     void displayPlayer() const;
 
-    //Player Stats:
-    int playerAccurancy(const string &playerName);
-    int playerEntrying(const string &playerName);
 
 
 
