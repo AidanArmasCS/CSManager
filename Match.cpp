@@ -59,7 +59,7 @@ void Match::simulateMatch() {
     //BASE LOSING CALCULATION (if big gap in rating lower rounds for loser (usually) )
     int baseLosingScore = max(1, min(11, 13 - ((ratingDiff / 8) + rand() % 3)));
 
-    if (rand() % 100 < 20) { // 15% chance of close score match despite difference
+    if (rand() % 100 < 15) { // 15% chance of close score match despite difference
         baseLosingScore = 9 + (rand() % 2); // CREATES 13-10 socre line aka close game
     }
 
