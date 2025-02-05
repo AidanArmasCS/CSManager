@@ -31,9 +31,13 @@ public:
     // TEAM MANAGEMENT
     void addPlayer(const Player &newPlayer);
     bool removePlayer(const string &playerName);
-    void displayRoster() const;
     string getName() const;
     string getNationality() const;
+
+
+    //TEAM VIEWING
+    int getTeamOverallRating() const;
+    void displayRoster() const;
 
 
 

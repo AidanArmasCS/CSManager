@@ -44,25 +44,39 @@ void Match::simulateMatch() {
         return;
     }
 
-    result = rand() % 2;
+    // Get team ratings
+    int team1Rating = team1->getTeamOverallRating();
+    int team2Rating = team2->getTeamOverallRating();
 
-    if (result == 0) { // TEAM 1 WINS
+    // Random variance to allow upsets
+    int randomFactor = rand() % 17 - 8;  // Adds randomness between -8 and +8
+    team1Rating += randomFactor;
+    team2Rating -= randomFactor;
+
+    bool team1Wins = team1Rating > team2Rating;
+    int ratingDiff = abs(team1Rating - team2Rating);
+
+    //BASE LOSING CALCULATION (if big gap in rating lower rounds for loser (usually) )
+    int baseLosingScore = max(1, min(11, 13 - ((ratingDiff / 8) + rand() % 3)));
+
+    if (rand() % 100 < 20) { // 15% chance of close score match despite difference
+        baseLosingScore = 9 + (rand() % 2); // CREATES 13-10 socre line aka close game
+    }
+
+    if (team1Wins) {
         team1score = 13;
-        team2score = 1 + (rand() % 11);
-
+        team2score = baseLosingScore;
         team1->recordWin();
         team2->recordLoss();
         winner = team1->getName();
     }
     else {
         team2score = 13;
-        team1score = 1 + (rand() % 11);
-
-        team2->recordWin();
+        team1score = baseLosingScore;
         team1->recordLoss();
+        team2->recordWin();
         winner = team2->getName();
     }
-
     cout << "Match simulated: " << team1->getName() << " [" << team1score
          << "] - [" << team2score << "] " << team2->getName() << endl;
     cout << "Winner: " << winner << endl;

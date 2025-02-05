@@ -6,6 +6,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -55,14 +56,15 @@ bool Team::removePlayer(const string &playerName) {
 }
 
 void Team::displayRoster() const {
+    cout << "Team: " << name << " (Overall Rating: " << getTeamOverallRating() << ")\n";
+
     if (roster.empty()) {
-        cout << "Roster for " << name << " is empty" << endl;
+        cout << "No players in the team.\n";
         return;
     }
 
-    cout << name << " Team Roster: " << endl;
-    for (const auto &player : roster)  {
-        player.displayPlayer();
+    for (const Player &p : roster) {
+        p.displayPlayer();
     }
 }
 
@@ -76,6 +78,32 @@ void Team::recordLoss() {
 
 void Team::displayRecord() {
     cout << "Team: " << name << " | Wins: " << wins << " | Losses: " << losses << endl;
+}
+
+int Team::getTeamOverallRating() const {
+    if (roster.empty()) { // ensure roster isnt 0 for divison
+        return 0;
+    }
+    vector<int> playerRatings;
+    playerRatings.reserve(roster.size());
+
+    for (const Player &p: roster) { // collect ratings from roster
+        playerRatings.push_back(p.getOverallRating());
+    }
+
+//sort from highest to lowest
+    sort(playerRatings.rbegin(), playerRatings.rend());
+
+    double totalRating = 0;
+
+    for (size_t i = 0; i < playerRatings.size(); i++) {
+        if (i < 3)  // Top 3 players get a 1.1x boost
+            totalRating += playerRatings[i] * 1.1;
+        else  // Bottom 2 players get a 0.9x reduction
+            totalRating += playerRatings[i] * 0.9;
+    }
+
+    return static_cast<int>(totalRating / static_cast<double>(playerRatings.size()));
 }
 
 
