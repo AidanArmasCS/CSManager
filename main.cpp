@@ -281,19 +281,19 @@ int main() {
 
     Team team1("FaZe", "International");
 
-    team1.addPlayer(Player("NiKo", "Rifler", "Bosnia", 98, 90, 92, 85, 100, 60, 80, 90));
-    team1.addPlayer(Player("ropz", "Lurker", "Estonia", 96, 88, 95, 90, 75, 50, 70, 85));
-    team1.addPlayer(Player("broky", "AWP", "Latvia", 85, 80, 85, 70, 60, 90, 75, 80));
-    team1.addPlayer(Player("rain", "Entry", "Norway", 87, 85, 80, 82, 98, 50, 60, 75));
-    team1.addPlayer(Player("karrigan", "IGL", "Denmark", 70, 78, 85, 95, 50, 30, 40, 65));
+    team1.addPlayer(Player("Frozen", "Rifler", "Slovakia", 93, 87, 91, 87, 90, 60, 80, 90));
+    team1.addPlayer(Player("ropz", "Lurker", "Estonia", 96, 88, 95, 90, 75, 50, 77, 85));
+    team1.addPlayer(Player("broky", "AWP", "Latvia", 90, 84, 85, 75, 65, 95, 75, 85));
+    team1.addPlayer(Player("rain", "Rifler", "Norway", 87, 85, 80, 82, 98, 50, 60, 75));
+    team1.addPlayer(Player("karrigan", "IGL", "Denmark", 73, 78, 95, 99, 50, 30, 40, 75));
 
     Team team2("Navi", "CIS");
 
-    team2.addPlayer(Player("b1t", "Rifler", "Ukraine", 94, 92, 93, 85, 92, 50, 80, 88));
-    team2.addPlayer(Player("jL", "Rifler", "Lithuania", 88, 86, 85, 83, 90, 50, 75, 85));
-    team2.addPlayer(Player("w0nderful", "AWP", "Ukraine", 85, 82, 86, 80, 70, 95, 80, 80));
-    team2.addPlayer(Player("iM", "Entry", "Romania", 86, 85, 80, 78, 95, 50, 70, 75));
-    team2.addPlayer(Player("AleksiB", "IGL", "Finland", 76, 75, 85, 95, 50, 40, 60, 70));
+    team2.addPlayer(Player("b1t", "Rifler", "Ukraine", 95, 88, 90, 85, 92, 50, 80, 88));
+    team2.addPlayer(Player("jL", "Rifler", "Lithuania", 90, 90, 90, 90, 95, 50, 90, 90));
+    team2.addPlayer(Player("w0nderful", "AWP", "Ukraine", 85, 82, 79, 80, 64, 87, 70, 80));
+    team2.addPlayer(Player("iM", "Rifler", "Romania", 86, 85, 80, 78, 95, 50, 70, 75));
+    team2.addPlayer(Player("AleksiB", "IGL", "Finland", 75, 80, 83, 90, 50, 40, 45, 70));
 
 
     teams.push_back(team1);
@@ -304,12 +304,12 @@ int main() {
    cout << "Faze Overall: " << team1.getTeamOverallRating() << endl;
    cout << "Navi Overall: " << team2.getTeamOverallRating() << endl;
 
-    for (int i = 0; i < 1000; i++ ) {
+  /*  for (int i = 0; i < 1000; i++ ) {
         match.simulateMatch();
         match.resetMatch();
     }
 
-    team2.displayRecord();
+    team2.displayRecord(); */
 
     while (true) {
         cout << "\n===== CS2 Manager =====\n";

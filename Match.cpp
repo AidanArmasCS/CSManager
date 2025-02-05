@@ -60,7 +60,7 @@ void Match::simulateMatch() {
     int baseLosingScore = max(1, min(11, 13 - ((ratingDiff / 8) + rand() % 3)));
 
     if (rand() % 100 < 15) { // 15% chance of close score match despite difference
-        baseLosingScore = 9 + (rand() % 2); // CREATES 13-10 socre line aka close game
+        baseLosingScore = 9 + (rand() % 2); // CREATES 13-9 socre line aka close game
     }
 
     if (team1Wins) {
