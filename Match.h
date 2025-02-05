@@ -30,6 +30,9 @@ public:
     string getWinner() const;
     void resetMatch();
 
+    void simulateMatchStats();
+    void simulateRounds();
+
 };
 
 

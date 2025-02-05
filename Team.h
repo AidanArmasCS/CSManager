@@ -38,6 +38,7 @@ public:
     //TEAM VIEWING
     int getTeamOverallRating() const;
     void displayRoster() const;
+    vector<Player>& getRoster() { return roster; }
 
 
 

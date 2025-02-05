@@ -3,10 +3,12 @@
 //
 
 #include "Match.h"
+#include <random>
 #include <vector>
 #include <string>
 #include <iostream>
 #include <Team.h>
+#include <algorithm>
 
 using namespace std;
 
@@ -60,7 +62,7 @@ void Match::simulateMatch() {
     int baseLosingScore = max(1, min(11, 13 - ((ratingDiff / 8) + rand() % 3)));
 
     if (rand() % 100 < 15) { // 15% chance of close score match despite difference
-        baseLosingScore = 9 + (rand() % 2); // CREATES 13-9 socre line aka close game
+        baseLosingScore = 9 + (rand() % 2); // CREATES 13-9 score line aka close game
     }
 
     if (team1Wins) {
@@ -77,9 +79,12 @@ void Match::simulateMatch() {
         team2->recordWin();
         winner = team2->getName();
     }
+
     cout << "Match simulated: " << team1->getName() << " [" << team1score
          << "] - [" << team2score << "] " << team2->getName() << endl;
     cout << "Winner: " << winner << endl;
+
+    simulateRounds();
 
 }
 
@@ -90,3 +95,51 @@ void Match::resetMatch() {
 
     cout << "Match has been reset. Ready for a new simulation." << endl;
 }
+
+void Match::simulateMatchStats() {
+
+}
+
+void Match::simulateRounds() {
+    cout << "\n===== Round-by-Round Breakdown =====" << endl;
+
+    int roundsWonByWinningTeam = max(team1score, team2score);
+    int roundsWonByLosingTeam = min(team1score, team2score);
+    int totalRounds = roundsWonByLosingTeam + roundsWonByWinningTeam;
+
+    Team *winningTeam = (team1score > team2score) ? team1 : team2;
+    Team *losingTeam = (winningTeam == team1) ? team2 : team1;
+
+
+    vector<int> roundWinners;
+    for (int i = 0; i < roundsWonByWinningTeam - 1; i++) roundWinners.push_back(1); // STORE ROUND COUNTS IN ROUND WINNER VECTOR
+    for (int i = 0; i < roundsWonByLosingTeam; i++) roundWinners.push_back(0);
+
+    shuffle(roundWinners.begin(), roundWinners.end(), std::mt19937(std::random_device()())); // RANDOMIZE ROUNDS
+    roundWinners.push_back(1);
+
+    for (int round = 1; round <= totalRounds; round++) {
+        Team *roundWinner = (roundWinners[round - 1] == 1) ? winningTeam : losingTeam;
+
+        Player& keyPlayer = roundWinner->getRoster()[rand() % roundWinner->getRoster().size()];
+
+        string roundType;
+        int eventChance = rand() % 100;
+
+        if (eventChance < 10) {
+            roundType = "Flawless Round, all 5 stayed alive.";
+        }
+        else if (eventChance < 25) {
+            roundType = "won in a 1v1 clutch by " + keyPlayer.getName() + ".";
+        }
+        else if (eventChance < 45) {
+            roundType = "secured by " + keyPlayer.getName() + " with a multi-kill.";
+        }
+        else {
+            roundType = "A typical round that was back and forth.";
+        }
+        // Print round result
+        cout << "Round " << round << " won by " << roundWinner->getName() << " - " << roundType << endl;
+    }
+}
+
