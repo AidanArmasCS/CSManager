@@ -278,11 +278,24 @@ void displayTeamRecord(vector<Team> &teams) {
 int main() {
     srand(time(0)); // RANDOM EVERY TIME
 
-    vector<Team> teams; // STORE ALL TEAMS
-    vector<Match> matches; // STORE MATCH RESULTS
+    const int NUM_SIMULATIONS = 1000; // Number of simulations
 
+    int naviWins = 0;
+    int spiritWins = 0;
+    int spiritLosses = 0;
+    int naviLosses = 0;
+
+    // **Cumulative player stats**
+    struct PlayerStats {
+        int totalKills = 0;
+        int totalDeaths = 0;
+        int totalAssists = 0;
+    };
+
+    map<string, PlayerStats> playerStatsMap; // Store cumulative stats for each player
+
+    // **Recreate teams every simulation to reset data**
     Team team1("FaZe", "International");
-
     team1.addPlayer(Player("Frozen", "Rifler", "Slovakia", 93, 87, 91, 87, 90, 60, 80, 90));
     team1.addPlayer(Player("ropz", "Lurker", "Estonia", 96, 88, 95, 90, 75, 50, 77, 85));
     team1.addPlayer(Player("broky", "AWP", "Latvia", 90, 84, 85, 75, 65, 95, 75, 85));
@@ -290,69 +303,74 @@ int main() {
     team1.addPlayer(Player("karrigan", "IGL", "Denmark", 73, 78, 95, 99, 50, 30, 40, 75));
 
     Team team2("Navi", "CIS");
-
     team2.addPlayer(Player("b1t", "Rifler", "Ukraine", 95, 88, 90, 85, 92, 50, 80, 88));
     team2.addPlayer(Player("jL", "Rifler", "Lithuania", 90, 90, 90, 90, 95, 50, 90, 90));
     team2.addPlayer(Player("w0nderful", "AWP", "Ukraine", 85, 82, 79, 80, 64, 87, 70, 80));
-    team2.addPlayer(Player("iM", "Rifler", "Romania", 86, 85, 80, 78, 95, 50, 70, 75));
+    team2.addPlayer(Player("iM", "Support", "Romania", 86, 85, 80, 78, 95, 50, 70, 75));
     team2.addPlayer(Player("AleksiB", "IGL", "Finland", 75, 80, 83, 90, 50, 40, 45, 70));
 
+    Team team3("Spirit Academy", "CIS");
+    team3.addPlayer(Player("Donk", "Rifler", "Russia", 80, 75, 78, 74, 82, 40, 65, 70));
+    team3.addPlayer(Player("Latt1kk", "Lurker", "Russia", 78, 74, 76, 70, 79, 45, 60, 72));
+    team3.addPlayer(Player("Zont1x", "Rifler", "Russia", 77, 72, 75, 72, 81, 38, 55, 71));
+    team3.addPlayer(Player("S1ren", "Entry", "Russia", 76, 70, 74, 71, 85, 30, 50, 68));
+    team3.addPlayer(Player("ArtFr0st", "AWP", "Russia", 75, 69, 73, 68, 70, 85, 60, 65));
 
-    teams.push_back(team1);
-    teams.push_back(team2);
 
-    Match match(&team1, &team2);
 
-    cout << "Faze Overall: " << team1.getTeamOverallRating() << endl;
-    cout << "Navi Overall: " << team2.getTeamOverallRating() << endl;
 
-    match.simulateMatch();
-    return 0;
-}
+    for (int sim = 0; sim < NUM_SIMULATIONS; sim++) {
+        Match match(&team1, &team2);
+        match.simulateMatch();  // Run match simulation
 
-   /* while (true) {
-        cout << "\n===== CS2 Manager =====\n";
-        cout << "1. Add Team\n";
-        cout << "2. Remove Team\n";
-        cout << "3. Display Teams\n";
-        cout << "4. Add Player to Team\n";
-        cout << "5. Remove Player from Team\n";
-        cout << "6. Display Team Roster\n";
-        cout << "7. Simulate Match\n";
-        cout << "8. Display Team Record\n";
-        cout << "0. Exit\n";
-        cout << "Enter your choice:  ";
+        if (match.getWinner() == "Navi") {
+            naviWins++;
+            spiritLosses++;
+        }
+        else {
+            naviLosses++;
+            spiritWins++;
+        }
 
-        int choice;
-        cin >> choice;
 
-        switch (choice) {
-            case 1:
-                addTeam(teams);
-                break;
-            case 2:
-                removeTeam(teams);
-                break;
-            case 3:
-                displayTeams(teams);
-                break;
-            case 4:
-                addPlayertoTeam(teams);
-                break;
-            case 5:
-                removePlayerTeam(teams);
-                break;
-            case 6:
-                displayTeamRoster(teams);
-                break;
-            case 7:
-                simulateMatch(teams);
-                break;
-            case 8:
-                displayTeamRecord(teams);
-                break;
-            case 0:
-                return 0;
+        // **Track match stats per player**
+        for (Team* team : {&team1, &team2}) {
+            for (Player& player : team->getRoster()) {
+                string playerName = player.getName();
+                playerStatsMap[playerName].totalKills += player.getMatchKills();
+                playerStatsMap[playerName].totalDeaths += player.getMatchDeaths();
+                playerStatsMap[playerName].totalAssists += player.getMatchAssists();
+            }
         }
     }
-} */
+
+    // **Display Final Stats After 1000 Simulations**
+    cout << "\n===== Player Performance Over " << NUM_SIMULATIONS << " Simulations =====\n";
+    for (const auto& entry : playerStatsMap) {
+        const string& playerName = entry.first;
+        const PlayerStats& stats = entry.second;
+
+        // Compute averages
+        double avgKills = (double)stats.totalKills / NUM_SIMULATIONS;
+        double avgDeaths = (double)stats.totalDeaths / NUM_SIMULATIONS;
+        double avgAssists = (double)stats.totalAssists / NUM_SIMULATIONS;
+
+        cout << playerName << " - Avg Kills: " << avgKills
+             << " | Avg Deaths: " << avgDeaths
+             << " | Avg Assists: " << avgAssists
+             << " | K/D: " << avgKills / avgDeaths << endl;
+    }
+
+    // Display final win-loss records
+    cout << "\n===== Final Win/Loss Records After 1000 Simulations =====" << endl;
+    cout << "FaZe Record: " << spiritWins << " Wins | " << spiritLosses << " Losses | Win %: "
+         << (static_cast<double>(spiritWins) / 10.0) << "%" << endl;
+    cout << "Navi Record: " << naviWins << " Wins | " << naviLosses << " Losses | Win %: "
+         << (static_cast<double>(naviWins) / 10.0) << "%" << endl;
+
+    cout << "Navi Overall: " << team2.getTeamOverallRating() << endl;
+    cout << "FaZe Overall: " << team1.getTeamOverallRating() << endl;
+    cout << "Spirit Academy Overall: " << team3.getTeamOverallRating() << endl;
+
+    return 0;
+}

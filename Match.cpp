@@ -161,19 +161,86 @@ void Match::simulateMatchStats() {
         double totalKillWeight = 0.0, totalDeathWeight = 0.0, totalAssistWeight = 0.0;
 
         for (size_t i = 0; i < players.size(); i++) {
+
             Player& player = players[i];
 
-            // **Kill Weighting (Higher for Star Players)**
-            killWeights[i] = (player.getAim() * 3.0 + player.getMovement() * 1.8 + player.getEntrying() * 1.6);
-            totalKillWeight += killWeights[i];
+            if (player.getRole() == "AWP") { // AWP CASE
+                killWeights[i] = (player.getAwping() * 4.75 + player.getGameSense() * 1.8 + player.getAim() * 1.5);
+                totalKillWeight += killWeights[i];
 
-            // **Death Weighting (Higher for Supports & IGLs)**
-            deathWeights[i] = (70.0 - player.getGameSense() * 2.5 - player.getTeamwork() * 2.0);
-            totalDeathWeight += deathWeights[i];
+                // **Death Weighting
+                deathWeights[i] = (75.0 - player.getMovement() * 2.8 - player.getTeamwork() * 2.0);
+                totalDeathWeight += deathWeights[i];
 
-            // **Assist Weighting (Higher for Supports & IGLs)**
-            assistWeights[i] = (player.getTeamwork() * 1.8 + player.getEntrying() * 1.2);
-            totalAssistWeight += assistWeights[i];
+                // **Assist Weighting (Higher for Supports & IGLs)**
+                assistWeights[i] = (player.getTeamwork() * 1.2);
+                totalAssistWeight += assistWeights[i];
+            }
+            else if (player.getRole() == "Entry") { // ENTRY CASE
+                // **Kill Weighting (Higher for Star Players)**
+                killWeights[i] = (player.getAim() * 4.75 + player.getEntrying() * 4.0 + player.getTeamwork() * 2.0);
+                totalKillWeight += killWeights[i];
+
+                // **Death Weighting (Higher for Supports & IGLs)**
+                deathWeights[i] = (68.0 - player.getEntrying() * 3.8 - player.getTeamwork() * 1.5);
+                totalDeathWeight += deathWeights[i];
+
+                // **Assist Weighting (Higher for Supports & IGLs)**
+                assistWeights[i] = (player.getTeamwork() * 1.3);
+                totalAssistWeight += assistWeights[i];
+            }
+            else if (player.getRole() == "Lurker") { // LURKER CASE
+                // **Kill Weighting (Higher for Star Players)**
+                killWeights[i] = (player.getAim() * 2.5 + player.getGameSense() * 3.5 + player.getTeamwork() * 2.0);
+                totalKillWeight += killWeights[i];
+
+                // **Death Weighting (Higher for Supports & IGLs)**
+                deathWeights[i] = (80.0 - player.getGameSense() * 2.5 - player.getTeamwork() * 1.8);
+                totalDeathWeight += deathWeights[i];
+
+                // **Assist Weighting (Higher for Supports & IGLs)**
+                assistWeights[i] = (player.getTeamwork() * 1.5);
+                totalAssistWeight += assistWeights[i];
+            }
+            else if (player.getRole() == "Support") { // SUPPORT CASE
+                // **Kill Weighting (Higher for Star Players)**
+                killWeights[i] = (player.getAim() * 3.5 + player.getGameSense() * 2.2 + player.getTeamwork() * 2.8);
+                totalKillWeight += killWeights[i];
+
+                // **Death Weighting (Higher for Supports & IGLs)**
+                deathWeights[i] = (72.0 - player.getGameSense() * 3.0 - player.getTeamwork() * 2.5);
+                totalDeathWeight += deathWeights[i];
+
+                // **Assist Weighting (Higher for Supports & IGLs)**
+                assistWeights[i] = (player.getTeamwork() * 2.5);
+                totalAssistWeight += assistWeights[i];
+            }
+            else if (player.getRole() == "IGL") { // IGL CASE
+                // **Kill Weighting (Higher for Star Players)**
+                killWeights[i] = (player.getAim() * 2.5 + player.getTeamwork() * 1.5 + player.getGameSense() * 1.2);
+                totalKillWeight += killWeights[i];
+
+                // **Death Weighting (Higher for Supports & IGLs)**
+                deathWeights[i] = (72.0 - player.getGameSense() * 1.5 - player.getTeamwork() * 2.5);
+                totalDeathWeight += deathWeights[i];
+
+                // **Assist Weighting (Higher for Supports & IGLs)**
+                assistWeights[i] = (player.getTeamwork() * 1.6);
+                totalAssistWeight += assistWeights[i];
+            }
+            else { // RIFLER CASE
+                // **Kill Weighting (Higher for Star Players)**
+                killWeights[i] = (player.getAim() * 4.25 + player.getMovement() * 2.5 + player.getGameSense() * 2.5);
+                totalKillWeight += killWeights[i];
+
+                // **Death Weighting (Higher for Supports & IGLs)**
+                deathWeights[i] = (90.0 - player.getGameSense() * 3.0 - player.getTeamwork() * 2.5);
+                totalDeathWeight += deathWeights[i];
+
+                // **Assist Weighting (Higher for Supports & IGLs)**
+                assistWeights[i] = (player.getTeamwork() * 1.6);
+                totalAssistWeight += assistWeights[i];
+            }
         }
 
         // **Prevent division by zero**

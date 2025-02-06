@@ -49,6 +49,7 @@ public:
     int getEntrying() const;
     int getGameSense() const;
     int getTeamwork() const;
+    int getAwping() const { return awp; }
 
 
 

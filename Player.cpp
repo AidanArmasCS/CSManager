@@ -62,6 +62,10 @@ int Player::getOverallRating() const {
         overallRating = ( ( (aim * 1.2) + (movement * 1.1) + (gameSense * 1.3) + (teamwork * 1.25) + (entrying * 0.33) + (awp * 0.25) + (clutch * 1.2) + (consistency * 1.18) ) / 9 );
         overallRating += 14;
     }
+    else if (playerRole == "Support") {
+        overallRating = ( ( (aim * 1.0) + (movement * 1.0) + (gameSense * 1.2) + (teamwork * 1.8) + (entrying * 0.6) + (awp * 0.33) + (clutch * 1.05) + (consistency * 1.2) ) / 9 );
+        overallRating += 14;
+    }
 
 
     if (overallRating >= 99.0) {
