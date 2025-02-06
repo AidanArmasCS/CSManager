@@ -1,8 +1,10 @@
 #include <iostream>
 #include <vector>
+#include <map>
+#include <ctime>
+#include "Match.h"
 #include "Team.h"
 #include "Player.h"
-#include "Match.h"
 
 using namespace std;
 
@@ -301,17 +303,14 @@ int main() {
 
     Match match(&team1, &team2);
 
-   cout << "Faze Overall: " << team1.getTeamOverallRating() << endl;
-   cout << "Navi Overall: " << team2.getTeamOverallRating() << endl;
+    cout << "Faze Overall: " << team1.getTeamOverallRating() << endl;
+    cout << "Navi Overall: " << team2.getTeamOverallRating() << endl;
 
-  /*  for (int i = 0; i < 1000; i++ ) {
-        match.simulateMatch();
-        match.resetMatch();
-    }
+    match.simulateMatch();
+    return 0;
+}
 
-    team2.displayRecord(); */
-
-    while (true) {
+   /* while (true) {
         cout << "\n===== CS2 Manager =====\n";
         cout << "1. Add Team\n";
         cout << "2. Remove Team\n";
@@ -356,4 +355,4 @@ int main() {
                 return 0;
         }
     }
-}
+} */

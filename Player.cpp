@@ -31,6 +31,11 @@ Player::~Player() {}
 string Player::getName() const { return name; }
 string Player::getRole() const { return role; }
 string Player::getNationality() const { return nationality; }
+int Player::getAim() const { return aim; }
+int Player::getMovement() const { return movement; }
+int Player::getEntrying() const { return entrying; }
+int Player::getGameSense() const { return gameSense; }
+int Player::getTeamwork() const { return teamwork; }
 
 
 int Player::getOverallRating() const {

@@ -84,7 +84,8 @@ void Match::simulateMatch() {
          << "] - [" << team2score << "] " << team2->getName() << endl;
     cout << "Winner: " << winner << endl;
 
-    simulateRounds();
+
+    simulateMatchStats();
 
 }
 
@@ -96,8 +97,183 @@ void Match::resetMatch() {
     cout << "Match has been reset. Ready for a new simulation." << endl;
 }
 
-void Match::simulateMatchStats() {
 
+void Match::simulateMatchStats() {
+    cout << "\n===== Player Stats =====\n";
+
+    int winningTeamScore, losingTeamScore;
+    Team* winningTeam;
+    Team* losingTeam;
+
+    if (team1score > team2score) {
+        winningTeamScore = team1score;
+        losingTeamScore = team2score;
+        winningTeam = team1;
+        losingTeam = team2;
+    } else {
+        winningTeamScore = team2score;
+        losingTeamScore = team1score;
+        winningTeam = team2;
+        losingTeam = team1;
+    }
+
+    int winningTeamDeaths = losingTeamScore * 5;
+    int winningTeamKills = winningTeamScore * 5;
+
+    int winningTeamDeathsInRoundWins = 0;
+    for (int i = 0; i < winningTeamScore; i++) {
+        winningTeamDeathsInRoundWins += rand() % 5;
+    }
+
+    int winningTeamKillsInRoundsLost = 0;
+    for (int i = 0; i < losingTeamScore; i++) {
+        winningTeamKillsInRoundsLost += rand() % 5;
+    }
+
+    winningTeamKills += winningTeamKillsInRoundsLost;
+    winningTeamDeaths += winningTeamDeathsInRoundWins;
+
+    int losingTeamKills = winningTeamDeaths;
+    int losingTeamDeaths = winningTeamKills;
+
+    // **Display Baseline Totals**
+    cout << winningTeam->getName() << " Baseline: " << winningTeamKills << " Kills | " << winningTeamDeaths << " Deaths\n";
+    cout << losingTeam->getName() << " Baseline: " << losingTeamKills << " Kills | " << losingTeamDeaths << " Deaths\n";
+
+    // **Step 2: Distribute Stats Per Player**
+    for (Team* team : {winningTeam, losingTeam}) {
+        cout << "\n" << team->getName() << " Match Stats:\n";
+
+        vector<Player>& players = team->getRoster();
+        if (players.empty()) {
+            cout << "Error: No players found for " << team->getName() << endl;
+            continue;
+        }
+
+        vector<int> kills(players.size(), 0);
+        vector<int> deaths(players.size(), 0);
+        vector<int> assists(players.size(), 0);
+
+        vector<double> killWeights(players.size(), 0);
+        vector<double> deathWeights(players.size(), 0);
+        vector<double> assistWeights(players.size(), 0);
+
+        double totalKillWeight = 0.0, totalDeathWeight = 0.0, totalAssistWeight = 0.0;
+
+        for (size_t i = 0; i < players.size(); i++) {
+            Player& player = players[i];
+
+            // **Kill Weighting (Higher for Star Players)**
+            killWeights[i] = (player.getAim() * 3.0 + player.getMovement() * 1.8 + player.getEntrying() * 1.6);
+            totalKillWeight += killWeights[i];
+
+            // **Death Weighting (Higher for Supports & IGLs)**
+            deathWeights[i] = (70.0 - player.getGameSense() * 2.5 - player.getTeamwork() * 2.0);
+            totalDeathWeight += deathWeights[i];
+
+            // **Assist Weighting (Higher for Supports & IGLs)**
+            assistWeights[i] = (player.getTeamwork() * 1.8 + player.getEntrying() * 1.2);
+            totalAssistWeight += assistWeights[i];
+        }
+
+        // **Prevent division by zero**
+        if (totalKillWeight == 0) totalKillWeight = 1;
+        if (totalDeathWeight == 0) totalDeathWeight = 1;
+        if (totalAssistWeight == 0) totalAssistWeight = 1;
+
+        // **Normalize weights**
+        for (size_t i = 0; i < players.size(); i++) {
+            killWeights[i] /= totalKillWeight;
+            deathWeights[i] /= totalDeathWeight;
+            assistWeights[i] /= totalAssistWeight;
+        }
+
+        int totalTeamKills = (team == winningTeam) ? winningTeamKills : losingTeamKills;
+        int totalTeamDeaths = (team == winningTeam) ? winningTeamDeaths : losingTeamDeaths;
+        int totalTeamAssists = totalTeamKills * 0.25;
+
+        // **Distribute Kills**
+        int remainingKills = totalTeamKills;
+        while (remainingKills > 0) {
+            double randValue = (rand() % 100) / 100.0;
+            double cumulative = 0.0;
+            bool assigned = false;
+
+            for (size_t i = 0; i < players.size(); i++) {
+                cumulative += killWeights[i];
+                if (randValue <= cumulative) {
+                    kills[i]++;
+                    remainingKills--;
+                    assigned = true;
+                    break;
+                }
+            }
+
+            if (!assigned) {
+                kills[rand() % players.size()]++;
+                remainingKills--;
+            }
+        }
+
+        // **Distribute Deaths**
+        int remainingDeaths = totalTeamDeaths;
+        while (remainingDeaths > 0) {
+            double randValue = (rand() % 100) / 100.0;
+            double cumulative = 0.0;
+            bool assigned = false;
+
+            for (size_t i = 0; i < players.size(); i++) {
+                cumulative += deathWeights[i];
+                if (randValue <= cumulative) {
+                    deaths[i]++;
+                    remainingDeaths--;
+                    assigned = true;
+                    break;
+                }
+            }
+
+            if (!assigned) {
+                deaths[rand() % players.size()]++;
+                remainingDeaths--;
+            }
+        }
+
+        // **Distribute Assists**
+        int remainingAssists = totalTeamAssists;
+        while (remainingAssists > 0) {
+            double randValue = (rand() % 100) / 100.0;
+            double cumulative = 0.0;
+            bool assigned = false;
+
+            for (size_t i = 0; i < players.size(); i++) {
+                cumulative += assistWeights[i];
+                if (randValue <= cumulative) {
+                    assists[i]++;
+                    remainingAssists--;
+                    assigned = true;
+                    break;
+                }
+            }
+
+            if (!assigned) {
+                assists[rand() % players.size()]++;
+                remainingAssists--;
+            }
+        }
+
+        // **Apply Match Stats to Each Player**
+        for (size_t i = 0; i < players.size(); i++) {
+            players[i].addMatchStats(kills[i], deaths[i], assists[i]);
+        }
+
+        // **Print Stats**
+        for (size_t i = 0; i < players.size(); i++) {
+            cout << players[i].getName() << " - "
+                 << kills[i] << " Kills | "
+                 << deaths[i] << " Deaths | "
+                 << assists[i] << " Assists\n";
+        }
+    }
 }
 
 void Match::simulateRounds() {
