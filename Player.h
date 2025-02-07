@@ -30,6 +30,7 @@ private:
     int matchKills = 0;
     int matchDeaths = 0;
     int matchAssists = 0;
+    double matchADR;
 
 
 
@@ -50,6 +51,11 @@ public:
     int getGameSense() const;
     int getTeamwork() const;
     int getAwping() const { return awp; }
+    void setMatchADR(double adr) {
+        matchADR = adr;
+    }
+
+    double getMatchADR() { return matchADR; }
 
 
 

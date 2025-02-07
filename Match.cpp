@@ -337,7 +337,8 @@ void Match::simulateMatchStats() {
             cout << players[i].getName() << " - "
                  << kills[i] << " Kills | "
                  << deaths[i] << " Deaths | "
-                 << assists[i] << " Assists\n";
+                 << assists[i] << " Assists | "
+             << simulateMatchRatings(&players[i]) << "\n";
         }
     }
 }
@@ -383,5 +384,97 @@ void Match::simulateRounds() {
         // Print round result
         cout << "Round " << round << " won by " << roundWinner->getName() << " - " << roundType << endl;
     }
+}
+
+double Match::simulateMatchRatings(Player* playerName) {
+    double totalRounds = team1score + team2score;
+
+    if (totalRounds == 0) return 0;
+
+    double kills = playerName->getMatchKills();
+    double deaths = playerName->getMatchDeaths();
+    double assists = playerName->getMatchAssists();
+
+    double fpr, dpr, adr, impact;
+
+    fpr = kills / totalRounds;
+    dpr = deaths / totalRounds;
+
+    //ROUNDS SURVIVED CALC
+    double roundsSurvived = totalRounds - deaths;
+
+    // **Total Damage for ADR Calculation**
+    double totalDamage = 0.0;
+
+    for (int i = 0; i < kills; i++) {
+        double killDamage;
+
+        if (playerName->getRole() == "AWP") {
+            // **AWP Shots Should Do 85-100 Damage (Most are 100)**
+            killDamage = 85 + (rand() % 16);  // 85-100
+            if ((rand() % 100) < 80) { // 80% chance to deal 95-100 damage
+                killDamage = 95 + (rand() % 6);
+            }
+        } else {
+            // **Standard Kill Damage**
+            killDamage = 50 + (rand() % 51);  // 50-100
+            if ((rand() % 100) < 75) { // 75% bias toward 75-95
+                killDamage = 75 + (rand() % 21);
+            }
+        }
+        totalDamage += killDamage;
+    }
+
+// **Assist Damage (AWPers Should Have a Lower Assist Damage Range)**
+    for (int i = 0; i < assists; i++) {
+        double assistDamage;
+
+        if (playerName->getRole() == "AWP") {
+            assistDamage = 20 + (rand() % 31);  // AWP Assist Damage: 20-50 (Lower than rifles)
+        } else {
+            assistDamage = 40 + (rand() % 31);  // Rifle Assist Damage: 40 - 70 dmg per assist
+            if ((rand() % 100) < 70) { // 70% chance bias for 50 - 65
+                assistDamage = 50 + (rand() % 16);
+            }
+        }
+        totalDamage += assistDamage;
+    }
+
+// **Baseline Chip Damage (General Tagging Damage)**
+    if (playerName->getRole() == "AWP") {
+        totalDamage += ((totalRounds - (kills + assists)) * (15 + (rand() % 11))); // AWPers deal 15-25 chip damage
+    } else {
+        totalDamage += ((totalRounds - (kills + assists)) * (25 + (rand() % 16))); // Riflers deal 10-20 chip damage
+    }
+
+// **Final ADR Calculation**
+    adr = totalDamage / totalRounds;
+
+    playerName->setMatchADR(adr);
+
+
+    impact  = (2.13 * fpr) + (0.42 * (assists / totalRounds)) - 0.41;
+
+    // **HLTV 2.0 Rating Calculation**
+    double hltvRating;
+
+
+    if (playerName->getRole() == "AWP" ) {
+        hltvRating = (0.42 * fpr) + (-0.36 * dpr) + (0.33 * impact) + (0.0065 * adr) + 0.2;
+    }
+    else if (playerName->getRole() == "IGL" ) {
+       hltvRating = (0.5 * fpr) + (-0.4 * dpr) + (0.33 * impact) + (0.0065 * adr) + 0.13;
+    }
+    else {
+        hltvRating = (0.5 * fpr) + (-0.4 * dpr) + (0.33 * impact) + (0.0065 * adr) + 0.1;
+    }
+
+    // **Debugging Output**
+    cout << playerName->getName() << " FPR: " << fpr << endl;
+    cout << playerName->getName() << " ADR: " << adr << endl;
+    cout << playerName->getName() << " Impact: " << impact << endl;
+    cout << "HLTV Rating: ";
+
+    return hltvRating;
 }
 

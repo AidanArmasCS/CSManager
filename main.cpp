@@ -279,7 +279,7 @@ void displayTeamRecord(vector<Team> &teams) {
 int main() {
     srand(time(0)); // RANDOM EVERY TIME
 
-    const int NUM_SIMULATIONS = 1000; // Number of simulations
+    const int NUM_SIMULATIONS = 1; // Number of simulations
 
     int naviWins = 0;
     int spiritWins = 0;
@@ -287,15 +287,18 @@ int main() {
     int naviLosses = 0;
 
     // **Cumulative player stats**
+    // **Cumulative player stats including HLTV Rating & ADR**
     struct PlayerStats {
         int totalKills = 0;
         int totalDeaths = 0;
         int totalAssists = 0;
+        double totalHLTV = 0.0;
+        double totalADR = 0.0;
     };
 
     map<string, PlayerStats> playerStatsMap; // Store cumulative stats for each player
 
-   for (int sim = 0; sim < NUM_SIMULATIONS; sim++) {
+    for (int sim = 0; sim < NUM_SIMULATIONS; sim++) {
         // **Recreate teams every simulation to reset data**
         Team team1("FaZe", "International");
         team1.addPlayer(Player("Frozen", "Rifler", "Slovakia", 93, 87, 91, 87, 90, 60, 80, 90));
@@ -318,57 +321,62 @@ int main() {
         team3.addPlayer(Player("S1ren", "Entry", "Russia", 76, 70, 74, 71, 85, 30, 50, 68));
         team3.addPlayer(Player("ArtFr0st", "AWP", "Russia", 75, 69, 73, 68, 70, 85, 60, 65));
 
-        Match match(&team3, &team2);
-        match.simulateMatch();  // Run match simulation
+        Match match(&team2, &team1);
+        match.simulateMatch(); // Run match simulation
 
-        if (match.getWinner() == "Navi") {
+        if (match.getWinner() == "FaZe") {
             naviWins++;
             spiritLosses++;
-        }
-        else {
+        } else {
             naviLosses++;
             spiritWins++;
         }
 
-
-        // **Track match stats per player**
-        for (Team* team : {&team3, &team2}) {
-            for (Player& player : team->getRoster()) {
+        // **Track match stats per player including HLTV Rating & ADR**
+        for (Team *team: {&team2, &team1}) {
+            for (Player &player: team->getRoster()) {
                 string playerName = player.getName();
+                double rating = match.simulateMatchRatings(&player);
+                double adr = player.getMatchADR(); // Assuming ADR is stored per player
+
                 playerStatsMap[playerName].totalKills += player.getMatchKills();
                 playerStatsMap[playerName].totalDeaths += player.getMatchDeaths();
                 playerStatsMap[playerName].totalAssists += player.getMatchAssists();
+                playerStatsMap[playerName].totalHLTV += rating;
+                playerStatsMap[playerName].totalADR += adr;
             }
         }
     }
 
     // **Display Final Stats After 1000 Simulations**
     cout << "\n===== Player Performance Over " << NUM_SIMULATIONS << " Simulations =====\n";
-    for (const auto& entry : playerStatsMap) {
-        const string& playerName = entry.first;
-        const PlayerStats& stats = entry.second;
+    for (const auto &entry: playerStatsMap) {
+        const string &playerName = entry.first;
+        const PlayerStats &stats = entry.second;
 
         // Compute averages
-        double avgKills = (double)stats.totalKills / NUM_SIMULATIONS;
-        double avgDeaths = (double)stats.totalDeaths / NUM_SIMULATIONS;
-        double avgAssists = (double)stats.totalAssists / NUM_SIMULATIONS;
+        double avgKills = (double) stats.totalKills / NUM_SIMULATIONS;
+        double avgDeaths = (double) stats.totalDeaths / NUM_SIMULATIONS;
+        double avgAssists = (double) stats.totalAssists / NUM_SIMULATIONS;
+        double avgHLTV = stats.totalHLTV / NUM_SIMULATIONS;
+        double avgADR = stats.totalADR / NUM_SIMULATIONS;
         double kdRatio = avgKills / avgDeaths;
         double roundedKD = round(kdRatio * 100.0) / 100.0;
 
         cout << playerName << " - Avg Kills: " << avgKills
              << " | Avg Deaths: " << avgDeaths
              << " | Avg Assists: " << avgAssists
-             << " | K/D: " << roundedKD << endl;
+             << " | K/D: " << roundedKD
+             << " | Avg HLTV: " << avgHLTV
+             << " | Avg ADR: " << avgADR << endl;
     }
 
     // Display final win-loss records
-    cout << "\n===== Final Win/Loss Records After 1000 Simulations =====" << endl;
+    cout << "\n===== Final Win/Loss Records After " << NUM_SIMULATIONS << " Simulations =====" << endl;
     cout << "FaZe Record: " << spiritWins << " Wins | " << spiritLosses << " Losses | Win %: "
-         << (static_cast<double>(spiritWins) / 10.0) << "%" << endl;
+         << (static_cast<double>(spiritWins) / NUM_SIMULATIONS) * 100.0 << "%" << endl;
     cout << "Navi Record: " << naviWins << " Wins | " << naviLosses << " Losses | Win %: "
-         << (static_cast<double>(naviWins) / 10.0) << "%" << endl;
-
-
+         << (static_cast<double>(naviWins) / NUM_SIMULATIONS) * 100.0 << "%" << endl;
 
     return 0;
 }

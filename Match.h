@@ -32,6 +32,7 @@ public:
 
     void simulateMatchStats();
     void simulateRounds();
+    double simulateMatchRatings(Player* playerName);
 
 };
 
