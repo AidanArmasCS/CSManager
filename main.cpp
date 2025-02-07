@@ -2,6 +2,7 @@
 #include <vector>
 #include <map>
 #include <ctime>
+#include <cmath>
 #include "Match.h"
 #include "Team.h"
 #include "Player.h"
@@ -294,33 +295,30 @@ int main() {
 
     map<string, PlayerStats> playerStatsMap; // Store cumulative stats for each player
 
-    // **Recreate teams every simulation to reset data**
-    Team team1("FaZe", "International");
-    team1.addPlayer(Player("Frozen", "Rifler", "Slovakia", 93, 87, 91, 87, 90, 60, 80, 90));
-    team1.addPlayer(Player("ropz", "Lurker", "Estonia", 96, 88, 95, 90, 75, 50, 77, 85));
-    team1.addPlayer(Player("broky", "AWP", "Latvia", 90, 84, 85, 75, 65, 95, 75, 85));
-    team1.addPlayer(Player("rain", "Rifler", "Norway", 87, 85, 80, 82, 98, 50, 60, 75));
-    team1.addPlayer(Player("karrigan", "IGL", "Denmark", 73, 78, 95, 99, 50, 30, 40, 75));
+   for (int sim = 0; sim < NUM_SIMULATIONS; sim++) {
+        // **Recreate teams every simulation to reset data**
+        Team team1("FaZe", "International");
+        team1.addPlayer(Player("Frozen", "Rifler", "Slovakia", 93, 87, 91, 87, 90, 60, 80, 90));
+        team1.addPlayer(Player("ropz", "Lurker", "Estonia", 96, 88, 95, 90, 75, 50, 77, 85));
+        team1.addPlayer(Player("broky", "AWP", "Latvia", 90, 84, 85, 75, 65, 95, 75, 85));
+        team1.addPlayer(Player("rain", "Support", "Norway", 87, 85, 80, 82, 98, 50, 60, 75));
+        team1.addPlayer(Player("karrigan", "IGL", "Denmark", 73, 78, 95, 99, 50, 30, 40, 75));
 
-    Team team2("Navi", "CIS");
-    team2.addPlayer(Player("b1t", "Rifler", "Ukraine", 95, 88, 90, 85, 92, 50, 80, 88));
-    team2.addPlayer(Player("jL", "Rifler", "Lithuania", 90, 90, 90, 90, 95, 50, 90, 90));
-    team2.addPlayer(Player("w0nderful", "AWP", "Ukraine", 85, 82, 79, 80, 64, 87, 70, 80));
-    team2.addPlayer(Player("iM", "Support", "Romania", 86, 85, 80, 78, 95, 50, 70, 75));
-    team2.addPlayer(Player("AleksiB", "IGL", "Finland", 75, 80, 83, 90, 50, 40, 45, 70));
+        Team team2("Navi", "CIS");
+        team2.addPlayer(Player("b1t", "Rifler", "Ukraine", 95, 88, 90, 85, 92, 50, 80, 88));
+        team2.addPlayer(Player("jL", "Rifler", "Lithuania", 92, 90, 90, 90, 95, 50, 90, 90));
+        team2.addPlayer(Player("w0nderful", "AWP", "Ukraine", 85, 82, 79, 80, 64, 87, 70, 80));
+        team2.addPlayer(Player("iM", "Support", "Romania", 86, 85, 80, 78, 95, 50, 70, 75));
+        team2.addPlayer(Player("AleksiB", "IGL", "Finland", 75, 80, 83, 90, 50, 40, 45, 70));
 
-    Team team3("Spirit Academy", "CIS");
-    team3.addPlayer(Player("Donk", "Rifler", "Russia", 80, 75, 78, 74, 82, 40, 65, 70));
-    team3.addPlayer(Player("Latt1kk", "Lurker", "Russia", 78, 74, 76, 70, 79, 45, 60, 72));
-    team3.addPlayer(Player("Zont1x", "Rifler", "Russia", 77, 72, 75, 72, 81, 38, 55, 71));
-    team3.addPlayer(Player("S1ren", "Entry", "Russia", 76, 70, 74, 71, 85, 30, 50, 68));
-    team3.addPlayer(Player("ArtFr0st", "AWP", "Russia", 75, 69, 73, 68, 70, 85, 60, 65));
+        Team team3("Spirit Academy", "CIS");
+        team3.addPlayer(Player("Donk", "Rifler", "Russia", 80, 75, 78, 74, 82, 40, 65, 70));
+        team3.addPlayer(Player("Latt1kk", "IGL", "Russia", 78, 74, 76, 70, 79, 45, 60, 72));
+        team3.addPlayer(Player("Zont1x", "Support", "Russia", 77, 72, 75, 72, 81, 38, 55, 71));
+        team3.addPlayer(Player("S1ren", "Entry", "Russia", 76, 70, 74, 71, 85, 30, 50, 68));
+        team3.addPlayer(Player("ArtFr0st", "AWP", "Russia", 75, 69, 73, 68, 70, 85, 60, 65));
 
-
-
-
-    for (int sim = 0; sim < NUM_SIMULATIONS; sim++) {
-        Match match(&team1, &team2);
+        Match match(&team3, &team2);
         match.simulateMatch();  // Run match simulation
 
         if (match.getWinner() == "Navi") {
@@ -334,7 +332,7 @@ int main() {
 
 
         // **Track match stats per player**
-        for (Team* team : {&team1, &team2}) {
+        for (Team* team : {&team3, &team2}) {
             for (Player& player : team->getRoster()) {
                 string playerName = player.getName();
                 playerStatsMap[playerName].totalKills += player.getMatchKills();
@@ -354,11 +352,13 @@ int main() {
         double avgKills = (double)stats.totalKills / NUM_SIMULATIONS;
         double avgDeaths = (double)stats.totalDeaths / NUM_SIMULATIONS;
         double avgAssists = (double)stats.totalAssists / NUM_SIMULATIONS;
+        double kdRatio = avgKills / avgDeaths;
+        double roundedKD = round(kdRatio * 100.0) / 100.0;
 
         cout << playerName << " - Avg Kills: " << avgKills
              << " | Avg Deaths: " << avgDeaths
              << " | Avg Assists: " << avgAssists
-             << " | K/D: " << avgKills / avgDeaths << endl;
+             << " | K/D: " << roundedKD << endl;
     }
 
     // Display final win-loss records
@@ -368,9 +368,7 @@ int main() {
     cout << "Navi Record: " << naviWins << " Wins | " << naviLosses << " Losses | Win %: "
          << (static_cast<double>(naviWins) / 10.0) << "%" << endl;
 
-    cout << "Navi Overall: " << team2.getTeamOverallRating() << endl;
-    cout << "FaZe Overall: " << team1.getTeamOverallRating() << endl;
-    cout << "Spirit Academy Overall: " << team3.getTeamOverallRating() << endl;
+
 
     return 0;
 }
