@@ -25,10 +25,10 @@ string Match::getWinner() const {
 void Match::displayResult() const {
     cout << "Match Result: " << endl;
     cout << team1->getName() << " [" << team1score << "] - ["
-    << team2score << "] " << team2->getName() << endl;
+         << team2score << "] " << team2->getName() << endl;
 
     if (!winner.empty()) {
-         cout << "Winner: " << winner << endl;
+        cout << "Winner: " << winner << endl;
     }
     else {
         cout << "Match has not been simulated yet" << endl;
@@ -51,7 +51,7 @@ void Match::simulateMatch() {
     int team2Rating = team2->getTeamOverallRating();
 
     // Random variance to allow upsets
-    int randomFactor = rand() % 17 - 8;  // Adds randomness between -8 and +8
+    int randomFactor = rand() % 17 - 7;  // Adds randomness between -7 and +7
     team1Rating += randomFactor;
     team2Rating -= randomFactor;
 
@@ -59,7 +59,7 @@ void Match::simulateMatch() {
     int ratingDiff = abs(team1Rating - team2Rating);
 
     //BASE LOSING CALCULATION (if big gap in rating lower rounds for loser (usually) )
-    int baseLosingScore = max(1, min(11, 13 - ((ratingDiff / 8) + rand() % 3)));
+    int baseLosingScore = max(1, min(11, 13 - ((ratingDiff / 4) + rand() % 3)));
 
     if (rand() % 100 < 15) { // 15% chance of close score match despite difference
         baseLosingScore = 9 + (rand() % 2); // CREATES 13-9 score line aka close game
@@ -338,7 +338,7 @@ void Match::simulateMatchStats() {
                  << kills[i] << " Kills | "
                  << deaths[i] << " Deaths | "
                  << assists[i] << " Assists | "
-             << simulateMatchRatings(&players[i]) << "\n";
+                 << simulateMatchRatings(&players[i]) << "\n";
         }
     }
 }
@@ -460,21 +460,19 @@ double Match::simulateMatchRatings(Player* playerName) {
 
 
     if (playerName->getRole() == "AWP" ) {
-        hltvRating = (0.42 * fpr) + (-0.36 * dpr) + (0.33 * impact) + (0.0065 * adr) + 0.2;
+        hltvRating = (0.42 * fpr) + (-0.33 * dpr) + (0.33 * impact) + (0.0065 * adr) + 0.2;
     }
     else if (playerName->getRole() == "IGL" ) {
-       hltvRating = (0.5 * fpr) + (-0.4 * dpr) + (0.33 * impact) + (0.0065 * adr) + 0.13;
+        hltvRating = (0.5 * fpr) + (-0.4 * dpr) + (0.33 * impact) + (0.0065 * adr) + 0.13;
     }
     else {
         hltvRating = (0.5 * fpr) + (-0.4 * dpr) + (0.33 * impact) + (0.0065 * adr) + 0.1;
     }
 
     // **Debugging Output**
-    cout << playerName->getName() << " FPR: " << fpr << endl;
+  /*  cout << playerName->getName() << " FPR: " << fpr << endl;
     cout << playerName->getName() << " ADR: " << adr << endl;
-    cout << playerName->getName() << " Impact: " << impact << endl;
-    cout << "HLTV Rating: ";
+    cout << playerName->getName() << " Impact: " << impact << endl; */
 
     return hltvRating;
 }
-

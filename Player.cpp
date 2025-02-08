@@ -79,9 +79,9 @@ int Player::getOverallRating() const {
 
 //PRINT INFO OF PLAYER
 void Player::displayPlayer() const {
-        cout << "Player: " << name << " | Role: " << role << " | Nationality: " << nationality << endl;
-        cout << "Skills:\n";
-        cout << "Aim: " << aim << ", Movement: " << movement << ", Game Sense: " << gameSense << ", Teamwork: " << teamwork << endl;
-        cout << "Entrying: " << entrying << ", AWP: " << awp << ", Clutch: " << clutch << ", Consistency: " << consistency << endl;
-        cout << "Overall Rating: " << getOverallRating() << endl;
+    cout << "Player: " << name << " | Role: " << role << " | Nationality: " << nationality << endl;
+    cout << "Skills:\n";
+    cout << "Aim: " << aim << ", Movement: " << movement << ", Game Sense: " << gameSense << ", Teamwork: " << teamwork << endl;
+    cout << "Entrying: " << entrying << ", AWP: " << awp << ", Clutch: " << clutch << ", Consistency: " << consistency << endl;
+    cout << "Overall Rating: " << getOverallRating() << endl;
 }

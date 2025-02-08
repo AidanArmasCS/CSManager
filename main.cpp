@@ -3,6 +3,7 @@
 #include <map>
 #include <ctime>
 #include <cmath>
+#include <iomanip>
 #include "Match.h"
 #include "Team.h"
 #include "Player.h"
@@ -47,8 +48,8 @@ void removeTeam(vector<Team> &teams) { //METHOD FOR REMOVING TEAMS
             teams.erase(it);
             cout << "Team " << teamName << " removed successfully.\n";
             return;
-            }
         }
+    }
     cout << "Error: Team '" << teamName << "' not found.\n";
 }
 
@@ -245,7 +246,7 @@ void simulateMatch(vector<Team> &teams) {
     }
 
     if (one != 1 || two != 1) {
-       cout << "One of the two teams isn't an active team";
+        cout << "One of the two teams isn't an active team";
         return;
     }
 
@@ -321,10 +322,13 @@ int main() {
         team3.addPlayer(Player("S1ren", "Entry", "Russia", 76, 70, 74, 71, 85, 30, 50, 68));
         team3.addPlayer(Player("ArtFr0st", "AWP", "Russia", 75, 69, 73, 68, 70, 85, 60, 65));
 
-        Match match(&team2, &team1);
+        Match match(&team2, &team3);
         match.simulateMatch(); // Run match simulation
 
-        if (match.getWinner() == "FaZe") {
+        cout << "Navi Overall: " << team2.getTeamOverallRating() << endl;
+        cout << "Spirit Overall: " << team3.getTeamOverallRating() << endl;
+
+        if (match.getWinner() == "Navi") {
             naviWins++;
             spiritLosses++;
         } else {
@@ -333,7 +337,7 @@ int main() {
         }
 
         // **Track match stats per player including HLTV Rating & ADR**
-        for (Team *team: {&team2, &team1}) {
+        for (Team *team: {&team3, &team2}) {
             for (Player &player: team->getRoster()) {
                 string playerName = player.getName();
                 double rating = match.simulateMatchRatings(&player);
@@ -362,20 +366,24 @@ int main() {
         double avgADR = stats.totalADR / NUM_SIMULATIONS;
         double kdRatio = avgKills / avgDeaths;
         double roundedKD = round(kdRatio * 100.0) / 100.0;
+        double roundHLTV = round(avgHLTV * 100.0) / 100.0;
+        double roundedADR = round(avgADR * 100.0) / 100.0;
 
+        cout << fixed << setprecision(2);
         cout << playerName << " - Avg Kills: " << avgKills
              << " | Avg Deaths: " << avgDeaths
              << " | Avg Assists: " << avgAssists
              << " | K/D: " << roundedKD
-             << " | Avg HLTV: " << avgHLTV
-             << " | Avg ADR: " << avgADR << endl;
+             << " | Avg HLTV: " << roundHLTV
+             << " | Avg ADR: " << roundedADR << endl;
+
     }
 
     // Display final win-loss records
     cout << "\n===== Final Win/Loss Records After " << NUM_SIMULATIONS << " Simulations =====" << endl;
-    cout << "FaZe Record: " << spiritWins << " Wins | " << spiritLosses << " Losses | Win %: "
+    cout << "Navi Record: " << spiritWins << " Wins | " << spiritLosses << " Losses | Win %: "
          << (static_cast<double>(spiritWins) / NUM_SIMULATIONS) * 100.0 << "%" << endl;
-    cout << "Navi Record: " << naviWins << " Wins | " << naviLosses << " Losses | Win %: "
+    cout << "FaZe Record: " << naviWins << " Wins | " << naviLosses << " Losses | Win %: "
          << (static_cast<double>(naviWins) / NUM_SIMULATIONS) * 100.0 << "%" << endl;
 
     return 0;

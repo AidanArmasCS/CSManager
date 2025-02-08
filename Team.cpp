@@ -39,16 +39,16 @@ void Team::addPlayer(const Player &newPlayer) {
 }
 
 bool Team::removePlayer(const string &playerName) {
-        if (roster.empty()) {
-            cout << "Failed Removing Player. " << name << " already has 0 players" << endl;
-            return false;
-        }
+    if (roster.empty()) {
+        cout << "Failed Removing Player. " << name << " already has 0 players" << endl;
+        return false;
+    }
 
-            for (auto it = roster.begin(); it != roster.end(); ++it) {
-                if (it->getName() == playerName) {
-                    roster.erase(it);
-                    cout << playerName << " has been removed from " << name << "\n";
-                    return true;
+    for (auto it = roster.begin(); it != roster.end(); ++it) {
+        if (it->getName() == playerName) {
+            roster.erase(it);
+            cout << playerName << " has been removed from " << name << "\n";
+            return true;
         }
     }
     cout << "Player " << playerName << " not found in " << name << endl;
@@ -105,7 +105,6 @@ int Team::getTeamOverallRating() const {
 
     return static_cast<int>(totalRating / static_cast<double>(playerRatings.size()));
 }
-
 
 
 

@@ -56,14 +56,14 @@ public:
     }
 
     double getMatchADR() { return matchADR; }
+    int getMatchKills() const { return matchKills; }
+    int getMatchDeaths() const { return matchDeaths; }
+    int getMatchAssists() const { return matchAssists; }
 
 
 
     void displayPlayer() const;
 
-    int getMatchKills() const { return matchKills; }
-    int getMatchDeaths() const { return matchDeaths; }
-    int getMatchAssists() const { return matchAssists; }
 
     void addMatchStats(int kills, int deaths, int assists) {
         matchKills += kills;
