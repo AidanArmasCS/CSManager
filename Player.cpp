@@ -3,15 +3,18 @@
 //
 
 #include "Player.h"
+#include <utility>
 #include <vector>
 #include <string>
 #include <iostream>
+#include <Trait.h>
 
 using namespace std;
 
 Player::Player(const string &playerName, const string &playerRole, const string &playerNationality,
                int aim, int movement, int gameSense, int teamwork,
-               int entrying, int awp, int clutch, int consistency) {
+               int entrying, int awp, int clutch, int consistency,
+               PlayerStyle s, vector<string> assignedTraits ) {
     this->name = playerName;
     this->role = playerRole;
     this->nationality = playerNationality;
@@ -23,7 +26,38 @@ Player::Player(const string &playerName, const string &playerRole, const string 
     this->awp = awp;
     this->clutch = clutch;
     this->consistency = consistency;
+    this->style = s;
+    assignedTraits = {};
+
+    for (const string& traitName : assignedTraits) {
+        if (predefinedTraits.find(traitName) != predefinedTraits.end()) {
+            addTrait(predefinedTraits[traitName]); // assigning traits from list
+        }
+    }
 }
+
+void Player::addTrait(const Trait& trait) {
+    traits.push_back(trait);
+    chemistry += trait.effect; // GIVE BOOST OR NEGATIVE TO BASE CHEM
+}
+void Player::calculateChemistry(vector<Player>& teammates) {
+    for (auto& teammate : teammates) {
+        if (teammate.style != this->style) {
+            chemistry -= 2.0; // PENALTY FOR MISMATCH STYLES
+        }
+        else {
+            chemistry += 2.0; // REWARD FOR SAME STYLE
+        }
+    }
+    chemistry = max(0.0, min(99.0, chemistry)); // CHEM BETWEEN 1 and 99
+}
+double Player::getAdjustedAttribute(double baseStat) const {
+    double chemistryEffect = (chemistry - 60) / 10.0; //    TURN TO MODIFIER 60 as lowest CHEM until positives begin
+    return baseStat + chemistryEffect;
+}
+
+
+
 
 Player::~Player() {}
 
@@ -38,8 +72,35 @@ int Player::getGameSense() const { return gameSense; }
 int Player::getTeamwork() const { return teamwork; }
 
 
+
+int Player::getAdjustedOverallRating() {
+    //PLAYER OVERALL BEFORE ADJUSTMENTS
+    double baseRating = getOverallRating();
+    int adjustedRating = 0;
+
+    for (const Trait& trait : traits) { // LOOP through player traits adjusting each time.
+        if (trait.name == "Selifsh") {
+            teamwork += trait.statBoost;
+            return adjustedRating = getOverallRating();
+        }
+        else if (trait.name == "Toxic") {
+            teamwork += trait.statBoost;
+           return adjustedRating = getOverallRating();
+        }
+        else if (trait.name == "Inconsistent") {
+            gameSense += trait.statBoost;
+            return adjustedRating = getOverallRating();
+        }
+        else {
+            return adjustedRating;
+        }
+    }
+}
+
+
+//PRINT INFO OF PLAYER
 int Player::getOverallRating() const {
-    double overallRating = 0;
+    double overallRating = 0.0;
     string playerRole = getRole();
 
     if (playerRole == "IGL") {
@@ -74,11 +135,7 @@ int Player::getOverallRating() const {
     }
     return static_cast<int>(overallRating);
 }
-
-
-
-//PRINT INFO OF PLAYER
-void Player::displayPlayer() const {
+void Player::displayPlayer() {
     cout << "Player: " << name << " | Role: " << role << " | Nationality: " << nationality << endl;
     cout << "Skills:\n";
     cout << "Aim: " << aim << ", Movement: " << movement << ", Game Sense: " << gameSense << ", Teamwork: " << teamwork << endl;
