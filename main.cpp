@@ -280,7 +280,7 @@ void displayTeamRecord(vector<Team> &teams) {
 int main() {
     srand(time(0)); // RANDOM EVERY TIME
 
-    const int NUM_SIMULATIONS = 1; // Number of simulations
+    const int NUM_SIMULATIONS = 1000; // Number of simulations
 
     int naviWins = 0;
     int spiritWins = 0;
@@ -302,7 +302,7 @@ int main() {
     for (int sim = 0; sim < NUM_SIMULATIONS; sim++) {
         // **Recreate teams every simulation to reset data**
         Team team1("FaZe", "International");
-        team1.addPlayer(Player("Frozen", "Rifler", "Slovakia", 93, 87, 91, 87, 90, 60, 80, 90));
+        team1.addPlayer(Player("Frozen", "Rifler", "Slovakia", 93, 87, 91, 87, 90, 60, 80, 90, "Selfish"));
         team1.addPlayer(Player("ropz", "Lurker", "Estonia", 96, 88, 95, 90, 75, 50, 77, 85));
         team1.addPlayer(Player("broky", "AWP", "Latvia", 90, 84, 85, 75, 65, 95, 75, 85));
         team1.addPlayer(Player("rain", "Support", "Norway", 87, 85, 80, 82, 98, 50, 60, 75));
@@ -381,10 +381,10 @@ int main() {
 
     // Display final win-loss records
     cout << "\n===== Final Win/Loss Records After " << NUM_SIMULATIONS << " Simulations =====" << endl;
-    cout << "Navi Record: " << spiritWins << " Wins | " << spiritLosses << " Losses | Win %: "
-         << (static_cast<double>(spiritWins) / NUM_SIMULATIONS) * 100.0 << "%" << endl;
-    cout << "FaZe Record: " << naviWins << " Wins | " << naviLosses << " Losses | Win %: "
+    cout << "Navi Record: " << naviWins << " Wins | " << naviLosses << " Losses | Win %: "
          << (static_cast<double>(naviWins) / NUM_SIMULATIONS) * 100.0 << "%" << endl;
+    cout << "Spirit Record: " << spiritWins << " Wins | " << spiritLosses << " Losses | Win %: "
+         << (static_cast<double>(spiritWins) / NUM_SIMULATIONS) * 100.0 << "%" << endl;
 
     return 0;
 }
