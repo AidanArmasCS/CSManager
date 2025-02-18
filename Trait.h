@@ -48,7 +48,9 @@ static map<string, Trait> predefinedTraits = {
         {"Disciplined", Trait("Disciplined", +0, +2)},
         {"Versatile", Trait("Versatile", +0, +5)},
         {"Quick Learner", Trait("Quick Learner", +0, +2)},
-        {"Master Communicator", Trait{"Master Communicator", +4, +1}}
+        {"Master Communicator", Trait("Master Communicator", +4, +1)},
+         //NONE
+         {"None", Trait("None", +0, +0)}
 };
 
 #endif //TRAIT_H

@@ -8,6 +8,7 @@
 #include <string>
 #include <iostream>
 #include <Trait.h>
+#include <unordered_map>
 
 using namespace std;
 
@@ -73,26 +74,44 @@ int Player::getTeamwork() const { return teamwork; }
 
 
 
-int Player::getAdjustedOverallRating() {
+void Player:: getAdjustedOverallRating() {
     //PLAYER OVERALL BEFORE ADJUSTMENTS
     double baseRating = getOverallRating();
-    int adjustedRating = 0;
+    double adjustedRating = 0.0;
 
-    for (const Trait& trait : traits) { // LOOP through player traits adjusting each time.
-        if (trait.name == "Selifsh") {
-            teamwork += trait.statBoost;
-            return adjustedRating = getOverallRating();
-        }
-        else if (trait.name == "Toxic") {
-            teamwork += trait.statBoost;
-           return adjustedRating = getOverallRating();
-        }
-        else if (trait.name == "Inconsistent") {
-            gameSense += trait.statBoost;
-            return adjustedRating = getOverallRating();
-        }
-        else {
-            return adjustedRating;
+
+    //MAP TRAITS
+    unordered_map<string, int*> attributeMap = {
+            {"Selfish",          &teamwork},
+            {"Toxic",            &teamwork},
+            {"Inconsistent",     &teamwork},
+            {"Choker",           &aim},
+            {"Tilter",           &teamwork},
+            {"Bad Communicator", &teamwork},
+            {"Baiter",           &teamwork},
+            {"Stubborn",         &teamwork},
+            {"Large Ego",        &teamwork},
+            {"Lazy",             &teamwork},
+
+            {"Leader",           &teamwork},
+            {"Team Player",      &teamwork},
+            {"Clutch Master",    &clutch},
+            {"Supportive",       &teamwork},
+            {"Aim Demon",        &aim},
+            {"Tactical Genius",  &gameSense},
+            {"Disciplined",      &teamwork},
+            {"Versatile",        &teamwork},
+            {"Quick Learner",    &gameSense},
+            {"Master Communicator", &teamwork},
+            {"None", &teamwork}
+    };
+
+
+    //CHANGE THE ATTRIBUTES
+    for (const Trait& trait : traits) {
+        auto it = attributeMap.find(trait.name);
+        if (it != attributeMap.end()) {
+            *(it->second) += trait.statBoost;
         }
     }
 }

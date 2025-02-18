@@ -302,11 +302,11 @@ int main() {
     for (int sim = 0; sim < NUM_SIMULATIONS; sim++) {
         // **Recreate teams every simulation to reset data**
         Team team1("FaZe", "International");
-        team1.addPlayer(Player("Frozen", "Rifler", "Slovakia", 93, 87, 91, 87, 90, 60, 80, 90, "Selfish"));
-        team1.addPlayer(Player("ropz", "Lurker", "Estonia", 96, 88, 95, 90, 75, 50, 77, 85));
-        team1.addPlayer(Player("broky", "AWP", "Latvia", 90, 84, 85, 75, 65, 95, 75, 85));
-        team1.addPlayer(Player("rain", "Support", "Norway", 87, 85, 80, 82, 98, 50, 60, 75));
-        team1.addPlayer(Player("karrigan", "IGL", "Denmark", 73, 78, 95, 99, 50, 30, 40, 75));
+        team1.addPlayer(Player("Frozen", "Rifler", "Slovakia", 93, 87, 91, 87, 90, 60, 80, 90,PlayerStyle::Balanced,"Leader"));
+        team1.addPlayer(Player("ropz", "Lurker", "Estonia", 96, 88, 95, 90, 75, 50, 77, 85,PlayerStyle::Passive,"None"));
+        team1.addPlayer(Player("broky", "AWP", "Latvia", 90, 84, 85, 75, 65, 95, 75, 85,PlayerStyle::Passive,"None"));
+        team1.addPlayer(Player("rain", "Support", "Norway", 87, 85, 80, 82, 98, 50, 60, 75,PlayerStyle::Passive, "None"));
+        team1.addPlayer(Player("karrigan", "IGL", "Denmark", 73, 78, 95, 99, 50, 30, 40, 75,PlayerStyle::Passive, "None"));
 
         Team team2("Navi", "CIS");
         team2.addPlayer(Player("b1t", "Rifler", "Ukraine", 95, 88, 90, 85, 92, 50, 80, 88));

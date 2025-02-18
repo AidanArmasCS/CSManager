@@ -85,7 +85,7 @@ public:
     void calculateChemistry(vector<Player>& teammates);
     double getAdjustedAttribute (double baseStat) const;
     double getChemistry() const { return chemistry; }
-    int getAdjustedOverallRating();
+    void getAdjustedOverallRating();
 
 
 
