@@ -83,9 +83,8 @@ public:
     //CHEMISTRY METHODS
     void addTrait (const Trait& trait);
     void calculateChemistry(vector<Player>& teammates);
-    double getAdjustedAttribute (double baseStat) const;
     double getChemistry() const { return chemistry; }
-    void getAdjustedOverallRating();
+    int getAdjustedOverallRating();
 
 
 

@@ -41,20 +41,49 @@ void Player::addTrait(const Trait& trait) {
     traits.push_back(trait);
     chemistry += trait.effect; // GIVE BOOST OR NEGATIVE TO BASE CHEM
 }
-void Player::calculateChemistry(vector<Player>& teammates) {
-    for (auto& teammate : teammates) {
+void Player::calculateChemistry(vector<Player>& teammates) { // THIS METHOD FINDS THE PLAYER'S INDIVIDUAL CHEMISTRY
+    for (auto &teammate: teammates) {
         if (teammate.style != this->style) {
             chemistry -= 2.0; // PENALTY FOR MISMATCH STYLES
-        }
-        else {
+        } else {
             chemistry += 2.0; // REWARD FOR SAME STYLE
         }
     }
+    //MAP TRAITS
+    unordered_map<string, double*> traitMap = {
+            {"Selfish",             &chemistry},
+            {"Toxic",               &chemistry},
+            {"Inconsistent",        &chemistry},
+            {"Choker",              &chemistry},
+            {"Tilter",              &chemistry},
+            {"Bad Communicator",    &chemistry},
+            {"Baiter",              &chemistry},
+            {"Stubborn",            &chemistry},
+            {"Large Ego",           &chemistry},
+            {"Lazy",                &chemistry},
+
+            //POSITIVE
+            {"Leader",              &chemistry},
+            {"Team Player",         &chemistry},
+            {"Clutch Master",       &chemistry},
+            {"Supportive",          &chemistry},
+            {"Aim Demon",           &chemistry},
+            {"Tactical Genius",     &chemistry},
+            {"Disciplined",         &chemistry},
+            {"Versatile",           &chemistry},
+            {"Quick Learner",       &chemistry},
+            {"Master Communicator", &chemistry},
+            {"None",                &chemistry}
+    };
+
+    //CHANGE THE ATTRIBUTES
+    for (const Trait& trait : traits) {
+        auto it = traitMap.find(trait.name);
+        if (it != traitMap.end()) {
+            *(it->second) += trait.effect;
+        }
+    }
     chemistry = max(0.0, min(99.0, chemistry)); // CHEM BETWEEN 1 and 99
-}
-double Player::getAdjustedAttribute(double baseStat) const {
-    double chemistryEffect = (chemistry - 60) / 10.0; //    TURN TO MODIFIER 60 as lowest CHEM until positives begin
-    return baseStat + chemistryEffect;
 }
 
 
@@ -74,7 +103,7 @@ int Player::getTeamwork() const { return teamwork; }
 
 
 
-void Player:: getAdjustedOverallRating() {
+int Player:: getAdjustedOverallRating() { // ADJUSTS THE PLAYERS RATINGS BASED OFF OF THE PLAYERS TRAITS
     //PLAYER OVERALL BEFORE ADJUSTMENTS
     double baseRating = getOverallRating();
     double adjustedRating = 0.0;
@@ -114,6 +143,9 @@ void Player:: getAdjustedOverallRating() {
             *(it->second) += trait.statBoost;
         }
     }
+    // RETURN ADJUSTED RATING FOR STATS
+    adjustedRating = getOverallRating();
+    return static_cast<int>(adjustedRating);
 }
 
 
