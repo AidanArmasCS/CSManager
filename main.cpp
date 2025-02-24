@@ -312,7 +312,7 @@ int main() {
         team1.addPlayer(Player("karrigan", "IGL", "Denmark", 73, 78, 95, 99, 50, 30, 40, 75,PlayerStyle::Passive, {"None"}));
 
         Team team2("Navi", "CIS");
-        team2.addPlayer(Player("b1t", "Rifler", "Ukraine", 95, 88, 90, 85, 92, 50, 80, 88, PlayerStyle::Passive, {"Leader"}));
+        team2.addPlayer(Player("b1t", "Rifler", "Ukraine", 95, 88, 90, 85, 92, 50, 80, 88, PlayerStyle::Passive, {"Leader", "Selfish"}));
         team2.addPlayer(Player("jL", "Rifler", "Lithuania", 92, 90, 90, 90, 95, 50, 90, 90,PlayerStyle::Passive, {"Leader"}));
         team2.addPlayer(Player("w0nderful", "AWP", "Ukraine", 85, 82, 79, 80, 64, 87, 70, 80,PlayerStyle::Passive, {"Leader"}));
         team2.addPlayer(Player("iM", "Support", "Romania", 86, 85, 80, 78, 95, 50, 70, 75,PlayerStyle::Passive, {"Leader"}));
