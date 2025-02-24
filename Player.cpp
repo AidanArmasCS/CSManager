@@ -30,11 +30,21 @@ Player::Player(const string &playerName, const string &playerRole, const string 
     this->style = s;
     assignedTraits = {};
 
-    for (const string& traitName : assignedTraits) {
+    for (const string &traitName : assignedTraits) {
         if (predefinedTraits.find(traitName) != predefinedTraits.end()) {
-            addTrait(predefinedTraits[traitName]); // assigning traits from list
+            traits.push_back(predefinedTraits[traitName]);
+        }
+        else {
+            cout << "Warning: Trait " << traitName << " not found!" << endl;
         }
     }
+
+    // Debug Output
+    cout << "Player: " << name << " | Assigned Traits: ";
+    for (const Trait& t : traits) {
+        cout << t.name << " (Effect: " << t.effect << ") ";
+    }
+    cout << endl;
 }
 
 void Player::addTrait(const Trait& trait) {
@@ -42,48 +52,24 @@ void Player::addTrait(const Trait& trait) {
     chemistry += trait.effect; // GIVE BOOST OR NEGATIVE TO BASE CHEM
 }
 void Player::calculateChemistry(vector<Player>& teammates) { // THIS METHOD FINDS THE PLAYER'S INDIVIDUAL CHEMISTRY
+    // Adjust chemistry based on teammate styles
     for (auto &teammate: teammates) {
-        if (teammate.style != this->style) {
-            chemistry -= 2.0; // PENALTY FOR MISMATCH STYLES
-        } else {
-            chemistry += 2.0; // REWARD FOR SAME STYLE
+        if (teammate.getName() != this->getName()) {
+            if (teammate.style != this->style) {
+                chemistry -= 2.0; // Penalty for mismatched styles
+            } else {
+                chemistry += 2.0; // Reward for same style
+            }
         }
     }
-    //MAP TRAITS
-    unordered_map<string, double*> traitMap = {
-            {"Selfish",             &chemistry},
-            {"Toxic",               &chemistry},
-            {"Inconsistent",        &chemistry},
-            {"Choker",              &chemistry},
-            {"Tilter",              &chemistry},
-            {"Bad Communicator",    &chemistry},
-            {"Baiter",              &chemistry},
-            {"Stubborn",            &chemistry},
-            {"Large Ego",           &chemistry},
-            {"Lazy",                &chemistry},
 
-            //POSITIVE
-            {"Leader",              &chemistry},
-            {"Team Player",         &chemistry},
-            {"Clutch Master",       &chemistry},
-            {"Supportive",          &chemistry},
-            {"Aim Demon",           &chemistry},
-            {"Tactical Genius",     &chemistry},
-            {"Disciplined",         &chemistry},
-            {"Versatile",           &chemistry},
-            {"Quick Learner",       &chemistry},
-            {"Master Communicator", &chemistry},
-            {"None",                &chemistry}
-    };
-
-    //CHANGE THE ATTRIBUTES
+    // Apply trait effects to chemistry
     for (const Trait& trait : traits) {
-        auto it = traitMap.find(trait.name);
-        if (it != traitMap.end()) {
-            *(it->second) += trait.effect;
-        }
+        chemistry += trait.effect;  // Directly add trait effect
     }
-    chemistry = max(0.0, min(99.0, chemistry)); // CHEM BETWEEN 1 and 99
+
+    // Ensure chemistry stays between 1 and 99
+    chemistry = max(1.0, min(99.0, chemistry));
 }
 
 
@@ -104,8 +90,6 @@ int Player::getTeamwork() const { return teamwork; }
 
 
 int Player::getAdjustedOverallRating() { // ADJUSTS THE PLAYERS RATINGS BASED OFF OF THE PLAYERS TRAITS
-    //PLAYER OVERALL BEFORE ADJUSTMENTS
-    double baseRating = getOverallRating();
     double adjustedRating = 0.0;
 
 
