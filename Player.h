@@ -41,7 +41,7 @@ public:
     Player(const string &playerName, const string &playerRole, const string &playerNationality,
            int aim, int movement, int gameSense, int teamwork,
            int entrying, int awp, int clutch, int consistency,
-           PlayerStyle s, vector<string> assignedTraits);
+           PlayerStyle s, const vector<string>& assignedTraits);
     ~Player();
 
 

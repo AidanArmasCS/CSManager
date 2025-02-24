@@ -3,7 +3,6 @@
 //
 
 #include "Player.h"
-#include <utility>
 #include <vector>
 #include <string>
 #include <iostream>
@@ -15,7 +14,7 @@ using namespace std;
 Player::Player(const string &playerName, const string &playerRole, const string &playerNationality,
                int aim, int movement, int gameSense, int teamwork,
                int entrying, int awp, int clutch, int consistency,
-               PlayerStyle s, vector<string> assignedTraits ) {
+               PlayerStyle s, const vector<string>& assignedTraits ) {
     this->name = playerName;
     this->role = playerRole;
     this->nationality = playerNationality;
@@ -28,23 +27,16 @@ Player::Player(const string &playerName, const string &playerRole, const string 
     this->clutch = clutch;
     this->consistency = consistency;
     this->style = s;
-    assignedTraits = {};
 
-    for (const string &traitName : assignedTraits) {
+    // Convert trait names to Trait objects
+    for (const string& traitName : assignedTraits) {
         if (predefinedTraits.find(traitName) != predefinedTraits.end()) {
-            traits.push_back(predefinedTraits[traitName]);
-        }
-        else {
-            cout << "Warning: Trait " << traitName << " not found!" << endl;
+            traits.push_back(predefinedTraits[traitName]); // Store the Trait object
+        } else {
+            cout << "Warning: Trait '" << traitName << "' not found in predefinedTraits!" << endl;
         }
     }
 
-    // Debug Output
-    cout << "Player: " << name << " | Assigned Traits: ";
-    for (const Trait& t : traits) {
-        cout << t.name << " (Effect: " << t.effect << ") ";
-    }
-    cout << endl;
 }
 
 void Player::addTrait(const Trait& trait) {
