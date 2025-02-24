@@ -83,6 +83,8 @@ void addPlayertoTeam(vector<Team> &teams) {
             string role;
             string nationality;
             int aim, movement, gameSense, teamwork, entrying, awp, clutch, consistency;
+            PlayerStyle s;
+            vector<string> assignedTraits;
 
             cout << "Enter player name: ";
             getline(cin, playerName);
@@ -161,7 +163,8 @@ void addPlayertoTeam(vector<Team> &teams) {
 
             Player newPlayer(playerName, role, nationality,
                              aim, movement, gameSense, teamwork,
-                             entrying, awp, clutch, consistency);
+                             entrying, awp, clutch, consistency,
+                             s, assignedTraits );
             team.addPlayer(newPlayer);
             cout << playerName << " added successfully to " << teamName << "!\n";
             return;
@@ -280,7 +283,7 @@ void displayTeamRecord(vector<Team> &teams) {
 int main() {
     srand(time(0)); // RANDOM EVERY TIME
 
-    const int NUM_SIMULATIONS = 1000; // Number of simulations
+    const int NUM_SIMULATIONS = 10; // Number of simulations
 
     int naviWins = 0;
     int spiritWins = 0;
@@ -302,31 +305,31 @@ int main() {
     for (int sim = 0; sim < NUM_SIMULATIONS; sim++) {
         // **Recreate teams every simulation to reset data**
         Team team1("FaZe", "International");
-        team1.addPlayer(Player("Frozen", "Rifler", "Slovakia", 93, 87, 91, 87, 90, 60, 80, 90,PlayerStyle::Balanced,"Leader"));
-        team1.addPlayer(Player("ropz", "Lurker", "Estonia", 96, 88, 95, 90, 75, 50, 77, 85,PlayerStyle::Passive,"None"));
-        team1.addPlayer(Player("broky", "AWP", "Latvia", 90, 84, 85, 75, 65, 95, 75, 85,PlayerStyle::Passive,"None"));
-        team1.addPlayer(Player("rain", "Support", "Norway", 87, 85, 80, 82, 98, 50, 60, 75,PlayerStyle::Passive, "None"));
-        team1.addPlayer(Player("karrigan", "IGL", "Denmark", 73, 78, 95, 99, 50, 30, 40, 75,PlayerStyle::Passive, "None"));
+        team1.addPlayer(Player("Frozen", "Rifler", "Slovakia", 93, 87, 91, 87, 90, 60, 80, 90,PlayerStyle::Balanced,{"Leader"}));
+        team1.addPlayer(Player("ropz", "Lurker", "Estonia", 96, 88, 95, 90, 75, 50, 77, 85,PlayerStyle::Passive,{"None"}));
+        team1.addPlayer(Player("broky", "AWP", "Latvia", 90, 84, 85, 75, 65, 95, 75, 85,PlayerStyle::Passive,{"None"}));
+        team1.addPlayer(Player("rain", "Support", "Norway", 87, 85, 80, 82, 98, 50, 60, 75,PlayerStyle::Passive, {"None"}));
+        team1.addPlayer(Player("karrigan", "IGL", "Denmark", 73, 78, 95, 99, 50, 30, 40, 75,PlayerStyle::Passive, {"None"}));
 
         Team team2("Navi", "CIS");
-        team2.addPlayer(Player("b1t", "Rifler", "Ukraine", 95, 88, 90, 85, 92, 50, 80, 88));
-        team2.addPlayer(Player("jL", "Rifler", "Lithuania", 92, 90, 90, 90, 95, 50, 90, 90));
-        team2.addPlayer(Player("w0nderful", "AWP", "Ukraine", 85, 82, 79, 80, 64, 87, 70, 80));
-        team2.addPlayer(Player("iM", "Support", "Romania", 86, 85, 80, 78, 95, 50, 70, 75));
-        team2.addPlayer(Player("AleksiB", "IGL", "Finland", 75, 80, 83, 90, 50, 40, 45, 70));
+        team2.addPlayer(Player("b1t", "Rifler", "Ukraine", 95, 88, 90, 85, 92, 50, 80, 88, PlayerStyle::Passive, {"Leader"}));
+        team2.addPlayer(Player("jL", "Rifler", "Lithuania", 92, 90, 90, 90, 95, 50, 90, 90,PlayerStyle::Passive, {"Leader"}));
+        team2.addPlayer(Player("w0nderful", "AWP", "Ukraine", 85, 82, 79, 80, 64, 87, 70, 80,PlayerStyle::Passive, {"Leader"}));
+        team2.addPlayer(Player("iM", "Support", "Romania", 86, 85, 80, 78, 95, 50, 70, 75,PlayerStyle::Passive, {"Leader"}));
+        team2.addPlayer(Player("AleksiB", "IGL", "Finland", 75, 80, 83, 90, 50, 40, 45, 70,PlayerStyle::Balanced, {"Leader"}));
 
         Team team3("Spirit Academy", "CIS");
-        team3.addPlayer(Player("Donk", "Rifler", "Russia", 80, 75, 78, 74, 82, 40, 65, 70));
-        team3.addPlayer(Player("Latt1kk", "IGL", "Russia", 78, 74, 76, 70, 79, 45, 60, 72));
-        team3.addPlayer(Player("Zont1x", "Support", "Russia", 77, 72, 75, 72, 81, 38, 55, 71));
-        team3.addPlayer(Player("S1ren", "Entry", "Russia", 76, 70, 74, 71, 85, 30, 50, 68));
-        team3.addPlayer(Player("ArtFr0st", "AWP", "Russia", 75, 69, 73, 68, 70, 85, 60, 65));
+        team3.addPlayer(Player("Donk", "Rifler", "Russia", 80, 75, 78, 74, 82, 40, 65, 70,PlayerStyle::Aggressive, {"None"}));
+        team3.addPlayer(Player("Latt1kk", "IGL", "Russia", 78, 74, 76, 70, 79, 45, 60, 72,PlayerStyle::Aggressive, {"None"}));
+        team3.addPlayer(Player("Zont1x", "Support", "Russia", 77, 72, 75, 72, 81, 38, 55, 71,PlayerStyle::Aggressive, {"None"}));
+        team3.addPlayer(Player("S1ren", "Entry", "Russia", 76, 70, 74, 71, 85, 30, 50, 68,PlayerStyle::Aggressive, {"None"}));
+        team3.addPlayer(Player("ArtFr0st", "AWP", "Russia", 75, 69, 73, 68, 70, 85, 60, 65,PlayerStyle::Aggressive, {"None"}));
 
         Match match(&team2, &team3);
         match.simulateMatch(); // Run match simulation
 
-        cout << "Navi Overall: " << team2.getTeamOverallRating() << endl;
-        cout << "Spirit Overall: " << team3.getTeamOverallRating() << endl;
+        cout << "Navi Overall: " << team2.getTeamOverallRating() << " Navi Chemistry: " << team2.getTeamChemistry() << endl;
+        cout << "Spirit Overall: " << team3.getTeamOverallRating() << " Spirit Chemistry: " << team3.getTeamChemistry() << endl;
 
         if (match.getWinner() == "Navi") {
             naviWins++;

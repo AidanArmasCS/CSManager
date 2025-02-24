@@ -33,6 +33,7 @@ public:
     bool removePlayer(const string &playerName);
     string getName() const;
     string getNationality() const;
+    int getTeamChemistry() const;
 
 
     //TEAM VIEWING

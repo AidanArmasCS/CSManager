@@ -33,7 +33,7 @@ private:
 
     PlayerStyle style;
     vector<Trait> traits;
-    double chemistry = 50.0; // BASE PLAYER CHEMISTRY
+    double chemistry = 65.0; // BASE PLAYER CHEMISTRY
 
 
 public:

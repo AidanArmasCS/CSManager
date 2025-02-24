@@ -103,7 +103,7 @@ int Player::getTeamwork() const { return teamwork; }
 
 
 
-int Player:: getAdjustedOverallRating() { // ADJUSTS THE PLAYERS RATINGS BASED OFF OF THE PLAYERS TRAITS
+int Player::getAdjustedOverallRating() { // ADJUSTS THE PLAYERS RATINGS BASED OFF OF THE PLAYERS TRAITS
     //PLAYER OVERALL BEFORE ADJUSTMENTS
     double baseRating = getOverallRating();
     double adjustedRating = 0.0;
@@ -143,6 +143,7 @@ int Player:: getAdjustedOverallRating() { // ADJUSTS THE PLAYERS RATINGS BASED O
             *(it->second) += trait.statBoost;
         }
     }
+
     // RETURN ADJUSTED RATING FOR STATS
     adjustedRating = getOverallRating();
     return static_cast<int>(adjustedRating);

@@ -7,6 +7,9 @@
 #include <string>
 #include <iostream>
 #include <algorithm>
+#include <cmath>
+
+class Player;
 
 using namespace std;
 
@@ -63,7 +66,7 @@ void Team::displayRoster() const {
         return;
     }
 
-    for (const Player &p : roster) {
+    for (Player p : roster) {
         p.displayPlayer();
     }
 }
@@ -87,8 +90,8 @@ int Team::getTeamOverallRating() const {
     vector<int> playerRatings;
     playerRatings.reserve(roster.size());
 
-    for (const Player &p: roster) { // collect ratings from roster
-        playerRatings.push_back(p.getOverallRating());
+    for (Player p: roster) { // collect ratings from roster
+        playerRatings.push_back(p.getAdjustedOverallRating());
     }
 
 //sort from highest to lowest
@@ -103,7 +106,56 @@ int Team::getTeamOverallRating() const {
             totalRating += playerRatings[i] * 0.9;
     }
 
-    return static_cast<int>(totalRating / static_cast<double>(playerRatings.size()));
+    double totalChemistry = getTeamChemistry();
+    double baseTeamRating = totalRating / static_cast<double>(playerRatings.size());
+
+    //APPLY CHEMISTRY EFFECTS
+    double chemistryEffect = (totalChemistry - 65) / 70.0; // NORMALIZE CHEM IMPACT
+    double scaledChemistryImpact = 1.0 + (chemistryEffect * 0.15);
+    double finalRating = baseTeamRating * scaledChemistryImpact;
+
+    return static_cast<int>(finalRating);
+}
+
+
+int Team::getTeamChemistry() const {
+    if (roster.empty()) {
+        return 50.0; // DEFAULT FOR EMPTY ROSTER
+    }
+
+    double totalChemistry = 0;
+    vector<double> chemistryValues;
+
+    //CALC EACH PLAYER CHEM
+    for (Player player : roster) {
+        //temp vector to exclude current so not compared to self
+        vector<Player> teammates;
+        for (const Player &teammate : roster) {
+            if (&teammate != &player) {
+                teammates.push_back(teammate);
+            }
+        }
+
+        //CALL CHEM CALC
+        player.calculateChemistry(teammates);
+
+        //STORE FOR AVG
+        chemistryValues.push_back(player.getChemistry());
+    }
+    //SORT HIGHEST TO LOWEST
+    sort(chemistryValues.rbegin(), chemistryValues.rend());
+
+    // Compute weighted chemistry
+    for (size_t i = 0; i < chemistryValues.size(); i++) {
+        if (i < 3) { // Top 3 players get a 1.1x weight
+            totalChemistry += chemistryValues[i] * 1.1;
+        } else { // Bottom 2 players get a 0.9x weight
+            totalChemistry += chemistryValues[i] * 0.9;
+        }
+    }
+    //NORMALIZE
+    totalChemistry = totalChemistry / static_cast<double>(roster.size());
+    return static_cast<int>(totalChemistry);
 }
 
 
