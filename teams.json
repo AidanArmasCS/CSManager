@@ -1,0 +1,2048 @@
+{
+  "teams": [
+    {
+      "id": 1,
+      "name": "Spirit",
+      "nationality": "Russia",
+      "region": "EU",
+      "ranking": 1,
+      "players": ["chopper", "sh1ro", "magixx", "zont1x", "donk"]
+    },
+
+    {
+      "id": 2,
+      "name": "Vitality",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 2,
+      "players": ["apEX", "ropz", "Zyw0o", "flameZ", "mezii"]
+    },
+
+    {
+      "id": 3,
+      "name": "Natus Vincere",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 3,
+      "players": ["Aleksib", "iM", "b1t", "jL", "w0nderful"]
+    },
+
+    {
+      "id": 4,
+      "name": "Eternal Fire",
+      "nationality": "Turkey",
+      "region": "EU",
+      "ranking": 4,
+      "players": ["MAJ3R", "XANTARES", "woxic", "Wicadia", "jottAAA"]
+    },
+
+    {
+      "id": 5,
+      "name": "G2",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 5,
+      "players": ["Snax", "huNter-", "malbsMd", "m0NESY", "HeavyGod"]
+    },
+
+    {
+      "id": 6,
+      "name": "FaZe",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 6,
+      "players": ["karrigan", "rain", "EliGE", "frozen", "broky"]
+    },
+
+    {
+      "id": 7,
+      "name": "The MongolZ",
+      "nationality": "Mongolia",
+      "region": "ASIA",
+      "ranking": 7,
+      "players": ["bLitz", "Techno", "Senzu", "mzinho", "910"]
+    },
+
+    {
+      "id": 8,
+      "name": "MOUZ",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 8,
+      "players": ["Brollan", "torszi", "Spinx", "Jimpphat", "xertioN"]
+    },
+
+    {
+      "id": 9,
+      "name": "Astralis",
+      "nationality": "Denmark",
+      "region": "EU",
+      "ranking": 9,
+      "players": ["device", "cadiaN", "stavn", "jabbi", "Staehr"]
+    },
+
+    {
+      "id": 10,
+      "name": "Falcons",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 10,
+      "players": ["Niko", "Magisk", "TeSeS", "degster", "kyxsan"]
+    },
+
+    {
+      "id": 11,
+      "name": "Virtus.pro",
+      "nationality": "Russia",
+      "region": "EU",
+      "ranking": 11,
+      "players": ["electroNic", "FL1T", "fame", "FL4MUS", "ICY"]
+    },
+
+    {
+      "id": 12,
+      "name": "Liquid",
+      "nationality": "International",
+      "region": "NA",
+      "ranking": 12,
+      "players": ["jks", "NAF", "NertZ", "Twistzz", "ultimate"]
+    },
+
+    {
+      "id": 13,
+      "name": "paiN",
+      "nationality": "Brazil",
+      "region": "SA",
+      "ranking": 13,
+      "players": ["biguzera", "dav1deuS", "nqz", "kauez", "snow"]
+    },
+
+    {
+      "id": 14,
+      "name": "GamerLegion",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 14,
+      "players": ["REZ", "ztr", "Tauson", "sl3nd", "PR"]
+    },
+
+    {
+      "id": 15,
+      "name": "FURIA",
+      "nationality": "Brazil",
+      "region": "SA",
+      "ranking": 15,
+      "players": ["FalleN", "chelo", "yuurih", "KSCERATO", "skullz"]
+    },
+
+    {
+      "id": 16,
+      "name": "3DMAX",
+      "nationality": "France",
+      "region": "EU",
+      "ranking": 16,
+      "players": ["bodyy", "Maka", "Lucky", "Ex3rcice", "Graviti"]
+    },
+
+    {
+      "id": 17,
+      "name": "HEROIC",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 17,
+      "players": ["SunPayus", "xfl0ud", "LNZ", "tN1R", "yxngstxr"]
+    },
+
+    {
+      "id": 18,
+      "name": "BIG",
+      "nationality": "Germany",
+      "region": "EU",
+      "ranking": 18,
+      "players": ["tabseN", "JDC", "Krimbo", "kyuubii", "hyped"]
+    },
+
+    {
+      "id": 19,
+      "name": "MIBR",
+      "nationality": "Brazil",
+      "region": "SA",
+      "ranking": 19,
+      "players": ["exit", "Lucaozy", "saffee", "brnz4n", "insani"]
+    },
+
+    {
+      "id": 20,
+      "name": "BetBoom",
+      "nationality": "Russia",
+      "region": "EU",
+      "ranking": 20,
+      "players": ["Boombl4", "zorte", "Ax1Le", "S1ren", "Magnojez"]
+    },
+
+    {
+      "id": 21,
+      "name": "Wildcard",
+      "nationality": "International",
+      "region": "NA",
+      "ranking": 21,
+      "players": ["stanislaw", "Sonic", "phzy", "susp", "jBa"]
+    },
+
+    {
+      "id": 22,
+      "name": "SAW",
+      "nationality": "Portugal",
+      "region": "EU",
+      "ranking": 22,
+      "players": ["MUTiRis", "story", "Ag1l", "AZUWU", "cej0t"]
+    },
+
+    {
+      "id": 23,
+      "name": "FlyQuest",
+      "nationality": "Australia",
+      "region": "AUS",
+      "ranking": 23,
+      "players": ["dexter", "Liazz", "INS", "Vexite", "regali"]
+    },
+
+    {
+      "id": 24,
+      "name": "Complexity",
+      "nationality": "USA",
+      "region": "NA",
+      "ranking": 24,
+      "players": ["JT", "hallzerk", "Grim", "Cxzi", "nicx"]
+    },
+
+    {
+      "id": 25,
+      "name": "B8",
+      "nationality": "Ukraine",
+      "region": "EU",
+      "ranking": 25,
+      "players": ["headtr1ck", "alex666", "npl", "kensizor", "esenthial"]
+    },
+
+    {
+      "id": 26,
+      "name": "M80",
+      "nationality": "USA",
+      "region": "NA",
+      "ranking": 26,
+      "players": ["slaxz-", "Swisher", "reck", "s1n", "Lake"]
+    },
+
+    {
+      "id": 27,
+      "name": "Imperial",
+      "nationality": "Brazil",
+      "region": "SA",
+      "ranking": 27,
+      "players": ["VINI", "try", "chayJESUS", "decenty", "noway"]
+    },
+
+    {
+      "id": 28,
+      "name": "PARAVISION",
+      "nationality": "Russia",
+      "region": "EU",
+      "ranking": 28,
+      "players": ["Qikert", "Jame", "TRAVIS", "BELCHONOKK", "nota"]
+    },
+
+    {
+      "id": 29,
+      "name": "500",
+      "nationality": "Bulgaria",
+      "region": "EU",
+      "ranking": 29,
+      "players": ["SPELLAN", "CeRq", "SHiPZ", "Rainwaker", "oxygeN"]
+    },
+
+    {
+      "id": 30,
+      "name": "BC.Game",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 30,
+      "players": ["jkaem", "nexa", "nawwk", "CYPHER", "pr1metapz"]
+    },
+
+    {
+      "id": 31,
+      "name": "Rare Atom",
+      "nationality": "China",
+      "region": "ASIA",
+      "ranking": 31,
+      "players": ["Summer", "somebody", "kaze", "ChildKing", "L1haNg"]
+    },
+
+    {
+      "id": 32,
+      "name": "Spirit Academy",
+      "nationality": "Russia",
+      "region": "EU",
+      "ranking": 32,
+      "players": ["robo", "syph0", "alkarenn", "Mokuj1n", "kyousuke"]
+    },
+
+    {
+      "id": 33,
+      "name": "Lynn Vision",
+      "nationality": "China",
+      "region": "ASIA",
+      "ranking": 33,
+      "players": ["Westmelon", "z4kr", "Starry", "EmiliaQAQ", "C4LLM3SU3"]
+    },
+
+    {
+      "id": 34,
+      "name": "ATOX",
+      "nationality": "Mongolia",
+      "region": "ASIA",
+      "ranking": 34,
+      "players": ["dobu", "kabal", "MiQ", "AccuracyTG", "Zesta"]
+    },
+
+    {
+      "id": 35,
+      "name": "Nemiga",
+      "nationality": "Russia",
+      "region": "EU",
+      "ranking": 35,
+      "players": ["Xant3r", "1eeR", "riskyb0b", "khaN", "zweih"]
+    },
+
+    {
+      "id": 36,
+      "name": "OG",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 36,
+      "players": ["F1KU", "Chr1zN", "Buzz", "spooke", "afro"]
+    },
+
+    {
+      "id": 37,
+      "name": "ENCE",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 37,
+      "players": ["gla1ve", "sdy", "podi", "Neityu", "xKacpersky"]
+    },
+
+    {
+      "id": 38,
+      "name": "fnatic",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 38,
+      "players": ["KRIMZ", "blameF", "fear", "MATYS", "Burmylov"]
+    },
+
+    {
+      "id": 39,
+      "name": "Sharks",
+      "nationality": "Brazil",
+      "region": "SA",
+      "ranking": 39,
+      "players": ["gafolo", "koala", "rdnzao", "doc", "n1cks"]
+    },
+
+    {
+      "id": 40,
+      "name": "SINNERS",
+      "nationality": "Czech Republic",
+      "region": "EU",
+      "ranking": 40,
+      "players": ["ZEDKO", "beastik", "SHOCK", "MoriiSko", "Pepo"]
+    },
+
+    {
+      "id": 41,
+      "name": "Passion UA",
+      "nationality": "Ukraine",
+      "region": "EU",
+      "ranking": 41,
+      "players": ["Topa", "Kvem", "jambo", "jackasmo", "zeRRoFIX"]
+    },
+
+    {
+      "id": 42,
+      "name": "Zero Tenacity",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 42,
+      "players": ["aVN", "nEMANHA", "Cjoffo", "brutmonster", "simke"]
+    },
+
+    {
+      "id": 43,
+      "name": "Legacy",
+      "nationality": "Brazil",
+      "region": "SA",
+      "ranking": 43,
+      "players": ["dumau", "latto", "n1ssim", "lux", "saadzin"]
+    },
+
+    {
+      "id": 44,
+      "name": "CYBERSHOKE",
+      "nationality": "Russia",
+      "region": "EU",
+      "ranking": 44,
+      "players": ["glowiing", "lov1kus", "notineki", "bl1x1", "FenomeN"]
+    },
+
+    {
+      "id": 45,
+      "name": "BLUEJAYS",
+      "nationality": "USA",
+      "region": "NA",
+      "ranking": 45,
+      "players": ["Wolffe", "freshie", "Fruitcupx", "SLIGHT", "snav"]
+    },
+
+    {
+      "id": 46,
+      "name": "NRG",
+      "nationality": "USA",
+      "region": "NA",
+      "ranking": 46,
+      "players": ["nitr0", "oSee", "br0", "HexT", "Jeorge"]
+    },
+
+    {
+      "id": 47,
+      "name": "Aurora",
+      "nationality": "Russia",
+      "region": "EU",
+      "ranking": 47,
+      "players": ["clax", "KENSI", "Patsi", "Norwi", "gr1ks"]
+    },
+
+    {
+      "id": 48,
+      "name": "The Huns",
+      "nationality": "Mongolia",
+      "region": "Asia",
+      "ranking": 48,
+      "players": ["nin9", "Bart4k", "xerolte", "Veccil", "cobra"]
+    },
+
+    {
+      "id": 49,
+      "name": "Al-Ittihad",
+      "nationality": "International",
+      "region": "MEA",
+      "ranking": 49,
+      "players": ["Remind", "dodZ", "0scar", "Lambdacore", "0SAMAS"]
+    },
+
+    {
+      "id": 50,
+      "name": "CPH Wolves",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 50,
+      "players": ["Jackinho", "szejn", "b1elany", "aNdu", "Tapewaare"]
+    },
+
+    {
+      "id": 51,
+      "name": "Monte",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 51,
+      "players": ["hades", "DemQQ", "leen", "ryu", "Gizmy"]
+    },
+
+    {
+      "id": 52,
+      "name": "Solid",
+      "nationality": "Brazil",
+      "region": "SA",
+      "ranking": 52,
+      "players": ["destiny", "drg", "nython", "gbb", "tomate"]
+    },
+
+    {
+      "id": 53,
+      "name": "Imperial Valkyries",
+      "nationality": "Russia",
+      "region": "EU",
+      "ranking": 53,
+      "players": ["zAAz", "ANa", "tory", "twenty3", "Kat"]
+    },
+
+    {
+      "id": 54,
+      "name": "Fire Flux",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 54,
+      "players": ["ScrunK", "paz", "S3NSEY", "Banjo", "soulfly"]
+    },
+
+    {
+      "id": 55,
+      "name": "Partizan",
+      "nationality": "Serbia",
+      "region": "EU",
+      "ranking": 55,
+      "players": ["emi", "c0llins", "Kind0", "Dragon", "VLDN"]
+    },
+
+    {
+      "id": 56,
+      "name": "9 Pandas",
+      "nationality": "Russia",
+      "region": "EU",
+      "ranking": 56,
+      "players": ["Krad", "shalfey", "d1Ledez", "r3salt", "Alv"]
+    },
+
+    {
+      "id": 57,
+      "name": "Rebels",
+      "nationality": "Poland",
+      "region": "EU",
+      "ranking": 57,
+      "players": ["innocent", "Sobol", "tomiko", "flayy", "kisserek"]
+    },
+
+    {
+      "id": 58,
+      "name": "TYLOO",
+      "nationality": "China",
+      "region": "ASIA",
+      "ranking": 58,
+      "players": ["aumaN", "JamYoung", "Jee", "Mercury", "Moseyuh"]
+    },
+
+    {
+      "id": 59,
+      "name": "Sashi",
+      "nationality": "Denmark",
+      "region": "EU",
+      "ranking": 59,
+      "players": ["Lucky", "Altekz", "Cabbi", "IceBerg", "Zyphon"]
+    },
+
+    {
+      "id": 60,
+      "name": "Fluxo",
+      "nationality": "Brazil",
+      "region": "SA",
+      "ranking": 60,
+      "players": ["arT", "piriajr", "kye", "history", "nicks"]
+    },
+
+    {
+      "id": 61,
+      "name": "BESTIA",
+      "nationality": "Argentina",
+      "region": "SA",
+      "ranking": 61,
+      "players": ["Noktse", "pancc", "luchov", "naz", "tomaszin"]
+    },
+
+    {
+      "id": 62,
+      "name": "Getting Info",
+      "nationality": "USA",
+      "region": "NA",
+      "ranking": 62,
+      "players": ["MarKE", "nosraC", "dare", "dea", "vanity*"]
+    },
+
+    {
+      "id": 63,
+      "name": "-72c",
+      "nationality": "Russia",
+      "region": "ASIA",
+      "ranking": 63,
+      "players": ["1nhuman", "forzetsky", "borosto", "byek", "spira"]
+    },
+
+    {
+      "id": 64,
+      "name": "9INE",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 64,
+      "players": ["raalz", "mantuu", "faveN", "kraghen", "bobeksde"]
+    },
+
+    {
+      "id": 65,
+      "name": "Hesta",
+      "nationality": "Russia",
+      "region": "EU",
+      "ranking": 65,
+      "players": ["abiraju", "anttzz", "Muk0s", "frontales", "slaxejezzz"]
+    },
+
+    {
+      "id": 66,
+      "name": "NAVI Junior",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 66,
+      "players": ["dem0n", "Krabeni", "makazze", "cmtry", "dziugss"]
+    },
+
+    {
+      "id": 67,
+      "name": "SemperFi",
+      "nationality": "Australia",
+      "region": "AUS",
+      "ranking": 67,
+      "players": ["keen", "Valiance", "shadiy", "SaVage", "vision"]
+    },
+
+    {
+      "id": 68,
+      "name": "Ninjas in Pyjamas",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 68,
+      "players": ["Snappi", "sjuush", "r1nkle", "ewjerkz", "arrozdoce"]
+    },
+
+    {
+      "id": 69,
+      "name": "RUSH B",
+      "nationality": "Russia",
+      "region": "EU",
+      "ranking": 69,
+      "players": ["kinqie", "KIRO", "z1Nny", "executor", "tex1y"]
+    },
+
+    {
+      "id": 70,
+      "name": "ODDIK",
+      "nationality": "Brazil",
+      "region": "SA",
+      "ranking": 70,
+      "players": ["WOOD7", "naitte", "togs", "matios", "Ceruttera"]
+    },
+
+    {
+      "id": 71,
+      "name": "Nouns",
+      "nationality": "USA",
+      "region": "NA",
+      "ranking": 71,
+      "players": ["RUSH", "junior", "Crpytic", "Peeping", "Infinite*"]
+    },
+
+    {
+      "id": 72,
+      "name": "Marsborne",
+      "nationality": "USA",
+      "region": "NA",
+      "ranking": 72,
+      "players": ["WolfY", "motm", "Minus", "chop", "Grizz"]
+    },
+
+    {
+      "id": 73,
+      "name": "ECLOT",
+      "nationality": "Czech Republic",
+      "region": "EU",
+      "ranking": 73,
+      "players": ["The eLiVe", "forsyy", "nbqq", "Dytor", "M1key"]
+    },
+
+    {
+      "id": 74,
+      "name": "FAVBET",
+      "nationality": "Ukraine",
+      "region": "EU",
+      "ranking": 74,
+      "players": ["bondik", "Smash", "Marix", "j3kie", "t3ns1on"]
+    },
+
+    {
+      "id": 75,
+      "name": "Betera",
+      "nationality": "Russia",
+      "region": "EU",
+      "ranking": 75,
+      "players": ["Vert", "h1te", "MaSvAl", "synyx", "tENZY"]
+    },
+
+    {
+      "id": 76,
+      "name": "ARCRED",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 76,
+      "players": ["DSSj", "Get_Jeka", "Ryujin", "shg", "1NVISIBLEE"]
+    },
+
+    {
+      "id": 77,
+      "name": "ECSTATIC",
+      "nationality": "Denmark",
+      "region": "EU",
+      "ranking": 77,
+      "players": ["Kristou", "TMB", "Anlelele", "nut nut", "sirah"]
+    },
+
+    {
+      "id": 78,
+      "name": "Chinggis Warriors",
+      "nationality": "Mongolia",
+      "region": "ASIA",
+      "ranking": 78,
+      "players": ["NEUZ", "ROUX", "ariucle", "controlez", "Efire"]
+    },
+
+    {
+      "id": 79,
+      "name": "RED Canids",
+      "nationality": "Brazil",
+      "region": "SA",
+      "ranking": 79,
+      "players": ["HEN1", "coldzera", "felps", "venomzera", "nyezin"]
+    },
+
+    {
+      "id": 80,
+      "name": "kONO",
+      "nationality": "Ukraine",
+      "region": "EU",
+      "ranking": 80,
+      "players": ["cptkurtka023", "s4ltovsk1yy", "amster", "Sijeyy", "zogeN"]
+    },
+
+    {
+      "id": 81,
+      "name": "Chill Guys",
+      "nationality": "International",
+      "region": "NA",
+      "ranking": 81,
+      "players": ["MERL", "MagiC", "TABEN", "NIGHT666LADE", "Evan"]
+    },
+
+    {
+      "id": 82,
+      "name": "9z",
+      "nationality": "International",
+      "region": "SA",
+      "ranking": 82,
+      "players": ["max", "Luken", "adamS", "MartinezSa", "HUASOPEEK"]
+    },
+
+    {
+      "id": 83,
+      "name": "AMKAL",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 83,
+      "players": ["sm3t", "kAlash", "sFade8", "AW", "molodoy"]
+    },
+
+    {
+      "id": 84,
+      "name": "UR",
+      "nationality": "China",
+      "region": "ASIA",
+      "ranking": 84,
+      "players": ["SPine", "rage", "Risk", "Miami", " expSasiKi"]
+    },
+
+    {
+      "id": 85,
+      "name": "Apogee",
+      "nationality": "Poland",
+      "region": "EU",
+      "ranking": 85,
+      "players": ["Demho", "Prism", "jcobbb", "hfah", "hypex"]
+    },
+
+    {
+      "id": 86,
+      "name": "NEVERMORE",
+      "nationality": "Ukraine",
+      "region": "EU",
+      "ranking": 86,
+      "players": ["MUV", "neiter", "doni", "hodix", "jackast"]
+    },
+
+    {
+      "id": 87,
+      "name": "Metizport",
+      "nationality": "Sweden",
+      "region": "EU",
+      "ranking": 87,
+      "players": ["hampus", "Plopski", "isak", "adamb", "L00m1"]
+    },
+
+    {
+      "id": 88,
+      "name": "Immigrants Peek",
+      "nationality": "Ukraine",
+      "region": "NA",
+      "ranking": 88,
+      "players": ["Termina", "H0NeST", "nico1ajus", "bezymecc", "myline"]
+    },
+
+    {
+      "id": 89,
+      "name": "BASEMENT BOYS",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 89,
+      "players": ["ERSIN", "Polbandana", "Tr0uble", "Bambosh", "levantino"]
+    },
+
+    {
+      "id": 90,
+      "name": "K27",
+      "nationality": "Russia",
+      "region": "EU",
+      "ranking": 90,
+      "players": ["X5G7V", "xeedo", "relaxxie", "kashl1d", "qw1nk1"]
+    },
+
+    {
+      "id": 91,
+      "name": "Iberian Soul",
+      "nationality": "Spain",
+      "region": "EU",
+      "ranking": 91,
+      "players": ["alex", "mopoz", "stadodo", "sausol", "dav1g"]
+    },
+
+    {
+      "id": 92,
+      "name": "Elevate",
+      "nationality": "Brazil",
+      "region": "SA",
+      "ranking": 92,
+      "players": ["short", "zede", "diozera", "lash", "skr"]
+    },
+
+    {
+      "id": 93,
+      "name": "Swingers",
+      "nationality": "Brazil",
+      "region": "SA",
+      "ranking": 93,
+      "players": ["leo_drk", "ponter", "desh", "ninjaZ", "vinaabEAST"]
+    },
+
+    {
+      "id": 94,
+      "name": "GUN5",
+      "nationality": "Russia",
+      "region": "EU",
+      "ranking": 94,
+      "players": ["Lack1", "SELLTER", "xiELO", "Sdaim", "fineshine52"]
+    },
+
+    {
+      "id": 95,
+      "name": "Exceritus",
+      "nationality": "Peru",
+      "region": "SA",
+      "ranking": 95,
+      "players": ["zockie", "Slayerhz", "BabyRage", "SJR", "Antuanette"]
+    },
+
+    {
+      "id": 96,
+      "name": "adalYamigos",
+      "nationality": "Brazil",
+      "region": "SA",
+      "ranking": 96,
+      "players": ["SHOOWTiME", "delboNi", "f4stzin", "ckzao", "cass1n"]
+    },
+
+    {
+      "id": 97,
+      "name": "Alliance",
+      "nationality": "Sweden",
+      "region": "EU",
+      "ranking": 97,
+      "players": ["twist", "PlesseN", "eraa", "upE", "avid"]
+    },
+
+    {
+      "id": 98,
+      "name": "Inner Circle",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 98,
+      "players": ["oskar", "STYKO", "Fessor", "Q-Q", "kRaSnaL"]
+    },
+
+    {
+      "id": 99,
+      "name": "TNL",
+      "nationality": "Ukraine",
+      "region": "EU",
+      "ranking": 99,
+      "players": ["nifee", "Flierax", "onic", "Dawy", "cairne"]
+    },
+
+    {
+      "id": 100,
+      "name": "GenOne",
+      "nationality": "France",
+      "region": "EU",
+      "ranking": 100,
+      "players": ["JACKZ", "devoduvek", "drac", "Kursy", "Brooxsy"]
+    },
+
+    {
+      "id": 101,
+      "name": "NomadS",
+      "nationality": "Mongolia",
+      "region": "ASIA",
+      "ranking": 101,
+      "players": ["shinobi", "HenX", "hoolig4n", "CRYTICAL", "KRST"]
+    },
+
+    {
+      "id": 102,
+      "name": "Insilio",
+      "nationality": "Russia",
+      "region": "EU",
+      "ranking": 102,
+      "players": ["sugaR", "faydett", "dwushka", "mag1k3Y", "kelieN"]
+    },
+
+    {
+      "id": 103,
+      "name": "JiJieHao",
+      "nationality": "International",
+      "region": "MEA",
+      "ranking": 103,
+      "players": ["Aaron", "dennyslaw", "m1N1", "Bibu", "BOROS"]
+    },
+
+    {
+      "id": 104,
+      "name": "Tropa do VSM",
+      "nationality": "Brazil",
+      "region": "SA",
+      "ranking": 104,
+      "players": ["vsm", "CutzMeretz", "Misfit", "farias", "max"]
+    },
+
+    {
+      "id": 105,
+      "name": "Rooster",
+      "nationality": "Australia",
+      "region": "AUS",
+      "ranking": 105,
+      "players": ["chelleos", "DannyG", "asap", "TjP", "sliimey"]
+    },
+
+    {
+      "id": 106,
+      "name": "WildLotus",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 106,
+      "players": ["smooya", "birdfromsky", "Keoz", "Vegi", "REDSTAR"]
+    },
+
+    {
+      "id": 107,
+      "name": "Bounty Hunters",
+      "nationality": "International",
+      "region": "SA",
+      "ranking": 107,
+      "players": ["Tuurtle", "meyern", "KAISER", "Bruninho", "zock"]
+    },
+
+    {
+      "id": 108,
+      "name": "TALON",
+      "nationality": "Australia",
+      "region": "AUS",
+      "ranking": 108,
+      "players": ["AZR", "hazr", "mhL", "nettik", "ADDICT"]
+    },
+
+    {
+      "id": 109,
+      "name": "Real Original",
+      "nationality": "Thailand",
+      "region": "ASIA",
+      "ranking": 109,
+      "players": ["Genuiss", "MAIROLLS", "RoLEX", "SeveN89", "RAICHEN*"]
+    },
+
+    {
+      "id": 110,
+      "name": "GameAgents",
+      "nationality": "Poland",
+      "region": "EU",
+      "ranking": 110,
+      "players": ["swiz", "Qlocuu", "POLO", "nestee", "virtuoso"]
+    },
+
+    {
+      "id": 111,
+      "name": "FORZE Reload",
+      "nationality": "Russia",
+      "region": "EU",
+      "ranking": 111,
+      "players": ["spirit", "shady", "rexxie", "Something", "KusMe"]
+    },
+
+    {
+      "id": 112,
+      "name": "Preasy",
+      "nationality": "Denmark",
+      "region": "EU",
+      "ranking": 112,
+      "players": ["Equip", "AcilioN", "Griller", "Viggo", "Beccie"]
+    },
+
+    {
+      "id": 113,
+      "name": "Yawara",
+      "nationality": "Brazil",
+      "region": "SA",
+      "ranking": 113,
+      "players": ["j0w", "stax", "revoltz", "tele D", "nardes"]
+    },
+
+    {
+      "id": 114,
+      "name": "Johnny Speeds",
+      "nationality": "Sweden",
+      "region": "EU",
+      "ranking": 114,
+      "players": ["draken", "Sapec", "SHiNE", "Ro1f", "MaiL09"]
+    },
+
+    {
+      "id": 115,
+      "name": "HOTU",
+      "nationality": "Russia",
+      "region": "EU",
+      "ranking": 115,
+      "players": ["kade0", "Re1GN", "mizu", "lampada", "youka"]
+    },
+
+    {
+      "id": 116,
+      "name": "MIGHT",
+      "nationality": "USA",
+      "region": "NA",
+      "ranking": 116,
+      "players": ["djay", "Voltage", "Snakes", "Louie", "Outback"]
+    },
+
+    {
+      "id": 117,
+      "name": "Gods Reign",
+      "nationality": "India",
+      "region": "ASIA",
+      "ranking": 117,
+      "players": ["Rossi", "Bhavi", "Ph1NNN", "f1redup", "R2B2"]
+    },
+
+    {
+      "id": 118,
+      "name": "ALASKA",
+      "nationality": "UK",
+      "region": "EU",
+      "ranking": 118,
+      "players": ["arTisT", "Extinct", "Girafffe", "Vacancy", "Tree60"]
+    },
+
+    {
+      "id": 119,
+      "name": "Akimbo",
+      "nationality": "International",
+      "region": "NA",
+      "ranking": 119,
+      "players": ["consti", "kmrn", "obi", "zy", "laxiee"]
+    },
+
+    {
+      "id": 120,
+      "name": "Shika",
+      "nationality": "China",
+      "region": "ASIA",
+      "ranking": 120,
+      "players": ["Biuckmt", "S1kura", "jiejie", "Zy88", "Siyi"]
+    },
+
+    {
+      "id": 121,
+      "name": "GTZ",
+      "nationality": "Portugal",
+      "region": "EU",
+      "ranking": 121,
+      "players": ["NOPEEJ", "snapy", "rafaxF", "DDias", "Linko"]
+    },
+
+    {
+      "id": 122,
+      "name": "DogEvil",
+      "nationality": "China",
+      "region": "ASIA",
+      "ranking": 122,
+      "players": ["Ian", "B1NGO", "Roninbaby", "Tiger", "BZA"]
+    },
+
+    {
+      "id": 123,
+      "name": "Just Swing",
+      "nationality": "China",
+      "region": "ASIA",
+      "ranking": 123,
+      "players": ["Marek", "gas", "Purely", "qqGOD", "VanceKK"]
+    },
+
+    {
+      "id": 124,
+      "name": "Viperio",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 124,
+      "players": ["swicher", "Skrimo", "zodi", "dezt", "Junyme"]
+    },
+
+    {
+      "id": 125,
+      "name": "Aetheris",
+      "nationality": "Ukraine",
+      "region": "NA",
+      "ranking": 125,
+      "players": ["Rulik", "graphX", "xsany", "s1renaa", "karv3r"]
+    },
+
+    {
+      "id": 126,
+      "name": "BAKS",
+      "nationality": "Russia",
+      "region": "EU",
+      "ranking": 126,
+      "players": ["Due1yant", "GREATEST", "swetsi", "MrTrelog", "Sa1nTy"]
+    },
+
+    {
+      "id": 127,
+      "name": "vagrants",
+      "nationality": "USA",
+      "region": "NA",
+      "ranking": 127,
+      "players": ["brett", "Cyrix", "Seb", "Sandman", "mason"]
+    },
+
+    {
+      "id": 128,
+      "name": "Tricked",
+      "nationality": "Denmark",
+      "region": "EU",
+      "ranking": 128,
+      "players": ["Nodios", "valde", "Queenix", "salazar", "leakz"]
+    },
+
+    {
+      "id": 129,
+      "name": "ALGO",
+      "nationality": "Ukraine",
+      "region": "EU",
+      "ranking": 129,
+      "players": ["byr9", "rendY", "Kiy0o", "maggent", "Shlyaperson"]
+    },
+
+    {
+      "id": 130,
+      "name": "KRU",
+      "nationality": "Argentina",
+      "region": "SA",
+      "ranking": 130,
+      "players": ["reversive", "deco", "laser", "atarax1a", "righi"]
+    },
+
+    {
+      "id": 131,
+      "name": "ENCE Academy",
+      "nationality": "Finland",
+      "region": "EU",
+      "ranking": 131,
+      "players": ["2high", "myltsi", "millert", "teme", "Schwarz"]
+    },
+
+    {
+      "id": 132,
+      "name": "UNO MILLE",
+      "nationality": "Brazil",
+      "region": "SA",
+      "ranking": 132,
+      "players": ["remix", "bnc", "zmb", "realz1n", "Leomonster"]
+    },
+
+    {
+      "id": 133,
+      "name": "LFO 3",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 133,
+      "players": ["Chill", "BehinDx", "giM", "Matheos", "awks"]
+    },
+
+    {
+      "id": 134,
+      "name": "Vantage",
+      "nationality": "Australia",
+      "region": "AUS",
+      "ranking": 134,
+      "players": ["Drox", "Mingovi", "supar", "Jynx", "swerzieN"]
+    },
+
+    {
+      "id": 135,
+      "name": "FengDa",
+      "nationality": "China",
+      "region": "ASIA",
+      "ranking": 135,
+      "players": ["1337x9", "chengking", "p5p", "3gl", "jung1e"]
+    },
+
+    {
+      "id": 136,
+      "name": "Eruption",
+      "nationality": "Mongolia",
+      "region": "ASIA",
+      "ranking": 136,
+      "players": ["sk0R", "MagnumZ", "fury5k", "sideffect", "xenization"]
+    },
+
+    {
+      "id": 137,
+      "name": "Housebets",
+      "nationality": "Australia",
+      "region": "AUS",
+      "ranking": 137,
+      "players": ["BRACE", "apocdud", "yourwombat", "pz", "damyo"]
+    },
+
+    {
+      "id": 138,
+      "name": "ESC",
+      "nationality": "Poland",
+      "region": "EU",
+      "ranking": 138,
+      "players": ["SaMey", "maaryy", "bajmi", "mASKED", "tein"]
+    },
+
+    {
+      "id": 139,
+      "name": "Leo",
+      "nationality": "Ukraine",
+      "region": "EU",
+      "ranking": 139,
+      "players": ["kr1vda", "Malkiss", "marat2k", "kL1o", "OneUn1que"]
+    },
+
+    {
+      "id": 140,
+      "name": "EYEBALLERS",
+      "nationality": "Sweden",
+      "region": "EU",
+      "ranking": 140,
+      "players": ["JW", "HEAP", "delle", "dex", "poiii"]
+    },
+
+    {
+      "id": 141,
+      "name": "Bad News Eagles",
+      "nationality": "Kosovo",
+      "region": "EU",
+      "ranking": 141,
+      "players": ["rigoN", "SENER1", "juanflatroo", "sinnopsyy", "gxx-"]
+    },
+
+    {
+      "id": 142,
+      "name": "AK BARS",
+      "nationality": "Kyrgyzstan",
+      "region": "ASIA",
+      "ranking": 142,
+      "players": ["SNk", "kamaz1k", "enzero", "plushax", "kenz1"]
+    },
+
+    {
+      "id": 143,
+      "name": "Chimera",
+      "nationality": "Russia",
+      "region": "EU",
+      "ranking": 143,
+      "players": ["sh1nejezzz", "m1QUSE", "VILBy", "bluewh1te", "z3ndeR"]
+    },
+
+    {
+      "id": 144,
+      "name": "Bad News Capybaras",
+      "nationality": "USA",
+      "region": "NA",
+      "ranking": 144,
+      "players": ["LaffyTs", "jchancE", "Grave", "Gabe", "cbass"]
+    },
+
+    {
+      "id": 145,
+      "name": "Galorys",
+      "nationality": "Brazil",
+      "region": "SA",
+      "ranking": 145,
+      "players": ["Alisson", "pepe", "divine", "kadzz", "bacc"]
+    },
+
+    {
+      "id": 146,
+      "name": "IHC",
+      "nationality": "Mongolia",
+      "region": "ASIA",
+      "ranking": 146,
+      "players": ["rate", "clouden", "yAmi", "cool4st", "me1o"]
+    },
+
+    {
+      "id": 147,
+      "name": "Nexus",
+      "nationality": "Romania",
+      "region": "EU",
+      "ranking": 147,
+      "players": ["BTN", "XELLOW", "ragga", "ADRON", "s0und"]
+    },
+
+    {
+      "id": 148,
+      "name": "MCS",
+      "nationality": "USA",
+      "region": "NA",
+      "ranking": 148,
+      "players": ["Go0dby3", "Scorchyy", "ogura", "snufaffu", "Oczarka"]
+    },
+
+    {
+      "id": 149,
+      "name": "Prasso",
+      "nationality": "Argentina",
+      "region": "SA",
+      "ranking": 149,
+      "players": ["lenci", "pavv", "Hezz", "rzk", "dott1"]
+    },
+
+    {
+      "id": 150,
+      "name": "UNiTY",
+      "nationality": "Czech Republic",
+      "region": "EU",
+      "ranking": 150,
+      "players": ["Pechyn", "Levi", "K1-FiDa", "NEOFRAG", "woozzzi"]
+    },
+
+    {
+      "id": 151,
+      "name": "Blaze Warriors",
+      "nationality": "Vietnam",
+      "region": "EU",
+      "ranking": 151,
+      "players": ["pms", "baby4", "melu", "tad", "Ryu"]
+    },
+
+    {
+      "id": 152,
+      "name": "JANO",
+      "nationality": "Finland",
+      "region": "EU",
+      "ranking": 152,
+      "players": ["allu", "Aerial", "HENU", "Jelo", "Sm1llee"]
+    },
+
+    {
+      "id": 153,
+      "name": "Adventurers",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 153,
+      "players": ["hAdji", "Woro2k", "metzal", "Nivera", "OWNER"]
+    },
+
+    {
+      "id": 154,
+      "name": "harizma",
+      "nationality": "Russia",
+      "region": "ASIA",
+      "ranking": 154,
+      "players": ["lame", "Haski4", "ZinGY", "Geneka", "DeFFeN"]
+    },
+
+    {
+      "id": 155,
+      "name": "THE",
+      "nationality": "Russia",
+      "region": "ASIA",
+      "ranking": 155,
+      "players": ["Sange", "vt0rnikk", "d0RREN", "krc", "Blessed"]
+    },
+
+    {
+      "id": 156,
+      "name": "Floripa Stars",
+      "nationality": "Brazil",
+      "region": "SA",
+      "ranking": 156,
+      "players": ["BRNZ1K", "s1cko", "sakamoto", "ALENNNCAR", "Lukita"]
+    },
+
+    {
+      "id": 157,
+      "name": "1WIN",
+      "nationality": "Russia",
+      "region": "EU",
+      "ranking": 157,
+      "players": ["H0bbit", "sh1geo", "cronuss", "oz1k", "lattykk"]
+    },
+
+    {
+      "id": 158,
+      "name": "WOPA",
+      "nationality": "Denmark",
+      "region": "EU",
+      "ranking": 158,
+      "players": ["Vster", "n1Xen", "PR1mE", "Gnoffe", "sL1m3"]
+    },
+
+    {
+      "id": 159,
+      "name": "LFO 2",
+      "nationality": "Russia",
+      "region": "ASIA",
+      "ranking": 159,
+      "players": ["SALO_MUX", "weqt2", "mediocrity", "Reminder", "CziTeX"]
+    },
+
+    {
+      "id": 160,
+      "name": "MIBR Academy",
+      "nationality": "Brazil",
+      "region": "SA",
+      "ranking": 160,
+      "players": ["card", "mlhzin", "brn$", "stormzyn", "RenanZin"]
+    },
+
+    {
+      "id": 161,
+      "name": "8Sins",
+      "nationality": "UK",
+      "region": "EU",
+      "ranking": 161,
+      "players": ["Wolfie", "Dutchy", "Prime", "wfn", "moz"]
+    },
+
+    {
+      "id": 162,
+      "name": "The QUBE",
+      "nationality": "Mongolia",
+      "region": "ASIA",
+      "ranking": 162,
+      "players": ["aNSeLMO", "Paranormal", "soloooS", "Kamui", "bkzcurs3d"]
+    },
+
+    {
+      "id": 163,
+      "name": "Tsunami",
+      "nationality": "USA",
+      "region": "NA",
+      "ranking": 163,
+      "players": ["caustic", "CAJUN", "Pose1doNN", "Drop", "CoolComs"]
+    },
+
+    {
+      "id": 164,
+      "name": "Rhyno",
+      "nationality": "Portugal",
+      "region": "EU",
+      "ranking": 164,
+      "players": ["Icarus", "P3R3IIRA", "aragornN", "krazy", "seabraez"]
+    },
+
+    {
+      "id": 165,
+      "name": "GameHunters",
+      "nationality": "Brazil",
+      "region": "SA",
+      "ranking": 165,
+      "players": ["prt", "abr", "nolkz", "mello", "slashzz"]
+    },
+
+    {
+      "id": 166,
+      "name": "Dusty Roots",
+      "nationality": "Argentina",
+      "region": "SA",
+      "ranking": 166,
+      "players": ["1962", "tom1jed", "maxxkor", "toto", "FraGuTy"]
+    },
+
+    {
+      "id": 167,
+      "name": "Astralis Talent",
+      "nationality": "Denmark",
+      "region": "EU",
+      "ranking": 167,
+      "players": ["kiR", "kroK", "Zanto", "ANSG1", "suma"]
+    },
+
+    {
+      "id": 168,
+      "name": "Mindfreak",
+      "nationality": "Australia",
+      "region": "AUS",
+      "ranking": 168,
+      "players": ["Rickeh", "tucks", "Texta", "gump", "pain"]
+    },
+
+    {
+      "id": 169,
+      "name": "Chicken Coop",
+      "nationality": "USA",
+      "region": "NA",
+      "ranking": 169,
+      "players": ["FRIZZY", "LittleBEER", "BiNoX", "taggy", "BAGEL"]
+    },
+
+    {
+      "id": 170,
+      "name": "Familia Maquininha",
+      "nationality": "Brazil",
+      "region": "SA",
+      "ranking": 170,
+      "players": ["mawth", "tatazin", "danoco", "detr0ittJ", "reachazera**"]
+    },
+
+    {
+      "id": 171,
+      "name": "Players",
+      "nationality": "Brazil",
+      "region": "SA",
+      "ranking": 171,
+      "players": ["MITHPUTTINI", "xns", "spinnie", "hug1", "dzt*"]
+    },
+
+    {
+      "id": 172,
+      "name": "ShindeN",
+      "nationality": "Argentina",
+      "region": "SA",
+      "ranking": 172,
+      "players": ["BK1", "nacho", "abizz", "roy", "ivz"]
+    },
+
+    {
+      "id": 173,
+      "name": "Steel Helmet",
+      "nationality": "China",
+      "region": "ASIA",
+      "ranking": 173,
+      "players": ["captainMo", "DD", "xiaosaGe", "AE", "18yM"]
+    },
+
+    {
+      "id": 174,
+      "name": "NITRO",
+      "nationality": "Brazil",
+      "region": "SA",
+      "ranking": 174,
+      "players": ["LUCAS1", "Lcm", "beg0d", "happ", "leleo"]
+    },
+
+    {
+      "id": 175,
+      "name": "PLUSH",
+      "nationality": "Ukraine",
+      "region": "EU",
+      "ranking": 175,
+      "players": ["St0m4k", "tripex17", "ner", "n0rths", "m4d4ra"]
+    },
+
+    {
+      "id": 176,
+      "name": "Justice For Tomorrow",
+      "nationality": "Australia",
+      "region": "AUS",
+      "ranking": 176,
+      "players": ["xc", "kasze", "COOOOOOFFEE", "LarkoTaco", "ELFMELK"]
+    },
+
+    {
+      "id": 177,
+      "name": "Permitta",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 177,
+      "players": ["Twiksar", "Kre1N", "fostar", "Orbit", "Tionix"]
+    },
+
+    {
+      "id": 178,
+      "name": "SUPER EVIL GANG",
+      "nationality": "USA",
+      "region": "NA",
+      "ranking": 178,
+      "players": ["arias", "Talen", "Misha", "flow", "clipzera"]
+    },
+
+    {
+      "id": 179,
+      "name": "Mythic",
+      "nationality": "USA",
+      "region": "NA",
+      "ranking": 179,
+      "players": ["fl0m", "Cooper", "hyza", "Austin", "Trucklover86"]
+    },
+
+    {
+      "id": 180,
+      "name": "ONi",
+      "nationality": "Philippines",
+      "region": "ASIA",
+      "ranking": 180,
+      "players": ["Jonger", "Estelle", "Jaytzy", "clyd1e", "Chinits"]
+    },
+
+    {
+      "id": 181,
+      "name": "Fluffy Gangsters",
+      "nationality": "Russia",
+      "region": "EU",
+      "ranking": 181,
+      "players": ["SoLb", "h1ghnesS", "takanashi", "Djon8", "yuramyata"]
+    },
+
+
+    {
+      "id": 182,
+      "name": "Heimo",
+      "nationality": "Finland",
+      "region": "EU",
+      "ranking": 182,
+      "players": ["arvid", "oopee", "Welho", "japE", "spargo"]
+    },
+
+    {
+      "id": 183,
+      "name": "InControl",
+      "nationality": "USA",
+      "region": "NA",
+      "ranking": 183,
+      "players": ["jsfeltner", "DYLAN", "TyRa", "Beast", "milo"]
+    },
+
+    {
+      "id": 184,
+      "name": "Eco Warriors",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 184,
+      "players": ["juliano", "D7", "vicu", "kyossa", "wieenN"]
+    },
+
+    {
+      "id": 185,
+      "name": "MANTRA",
+      "nationality": "Australia",
+      "region": "AUS",
+      "ranking": 185,
+      "players": ["cookie", "SkulL", "cheeseball", "rekonz", "Winnieeeee"]
+    },
+
+    {
+      "id": 186,
+      "name": "Underground",
+      "nationality": "Australia",
+      "region": "AUS",
+      "ranking": 186,
+      "players": ["N1ghtraid", "Mechanical", "Omichella", "coops", "rahley"]
+    },
+
+    {
+      "id": 187,
+      "name": "Novaq",
+      "nationality": "Kazakhstan",
+      "region": "EU",
+      "ranking": 187,
+      "players": ["neaLaN", "def1zer", "Pumpkin66", "tasman", "forkyz"]
+    },
+
+    {
+      "id": 188,
+      "name": "BRUTE",
+      "nationality": "Slovakia",
+      "region": "EU",
+      "ranking": 188,
+      "players": ["Siko", "w4rden", "v4NO", "realzen", "N1KOLAJ"]
+    },
+
+    {
+      "id": 189,
+      "name": "Dark Cloud",
+      "nationality": "Poland",
+      "region": "EU",
+      "ranking": 189,
+      "players": ["darchevile", "mwlky", "AdrieN", "chudy", "Nami"]
+    },
+
+    {
+      "id": 190,
+      "name": "LAG",
+      "nationality": "USA",
+      "region": "NA",
+      "ranking": 190,
+      "players": ["Experative", "TR0JN", "spud", "SnacKZ1", "Weeza"]
+    },
+
+    {
+      "id": 191,
+      "name": "Only One Word",
+      "nationality": "International",
+      "region": "ASIA",
+      "ranking": 191,
+      "players": ["Freeman", "viridian", "BaN4na", "Terryyy", "Oath"]
+    },
+
+    {
+      "id": 192,
+      "name": "RED Canids Academy",
+      "nationality": "Brazil",
+      "region": "SA",
+      "ranking": 192,
+      "players": ["sanc", "gtw", "n0page", "edv", "FasteR"]
+    },
+
+    {
+      "id": 193,
+      "name": "Nuclear TigRES",
+      "nationality": "Russia",
+      "region": "EU",
+      "ranking": 193,
+      "players": ["k0s", "senka", "h1kaN", "flouzer", "fluffy"]
+    },
+
+    {
+      "id": 194,
+      "name": "KZG",
+      "nationality": "Australia",
+      "region": "AUS",
+      "ranking": 194,
+      "players": ["foggers", "Hassie", "Samuukxs", "Estate", "Kras"]
+    },
+
+    {
+      "id": 195,
+      "name": "regain",
+      "nationality": "USA",
+      "region": "NA",
+      "ranking": 195,
+      "players": ["Halen", "Zucar", "dvrk", "sasha", "Fuzenko"]
+    },
+
+    {
+      "id": 196,
+      "name": "Sangal",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 196,
+      "players": ["Calyx", "kreaz", "Blytz", "bnox", "danistzz"]
+    },
+
+    {
+      "id": 197,
+      "name": "AKA HERO KAJO*",
+      "nationality": "Finland",
+      "region": "EU",
+      "ranking": 197,
+      "players": ["Waldee", "miLo", "amyb", "Siljeeeh", "Pikkuems"]
+    },
+
+    {
+      "id": 198,
+      "name": "Black Mold*",
+      "nationality": "USA",
+      "region": "NA",
+      "ranking": 198,
+      "players": ["Knopk@", "Bungee", "uhKelsie", "sunnypp", "Rach**"]
+    },
+
+    {
+      "id": 199,
+      "name": "Ghost*",
+      "nationality": "USA",
+      "region": "NA",
+      "ranking": 199,
+      "players": ["EMUHLEET", "mira", "PiggyKiki", "7licious", "Ellie"]
+    },
+
+    {
+      "id": 200,
+      "name": "Nouns fe*",
+      "nationality": "USA",
+      "region": "NA",
+      "ranking": 200,
+      "players": ["violet", "raynee", "ashe", "jesscas", "lunari"]
+    },
+
+    {
+      "id": 201,
+      "name": "Volt",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 201,
+      "players": ["msN", "smekk-", "skyye", "ex1st", "JBOEN"]
+    },
+
+    {
+      "id": 202,
+      "name": "Revel",
+      "nationality": "USA",
+      "region": "NA",
+      "ranking": 202,
+      "players": ["Jachro", "madss", "P3nny", "toasty", "brawckzz"]
+    },
+
+    {
+      "id": 203,
+      "name": "Tropa do KinGui",
+      "nationality": "Brazil",
+      "region": "SA",
+      "ranking": 203,
+      "players": ["flash", "brokeN", "clon7", "wallz1k", "cLd"]
+    },
+
+    {
+      "id": 204,
+      "name": "MASONIC",
+      "nationality": "Denmark",
+      "region": "EU",
+      "ranking": 204,
+      "players": ["Froslev", "Bukhavez", "Noruyp", "Botman", "grumpyMonk"]
+    },
+
+    {
+      "id": 205,
+      "name": "Aether",
+      "nationality": "USA",
+      "region": "NA",
+      "ranking": 205,
+      "players": ["SolGoat", "AtomiK", "MJB", "LUKE4K", "Drew"]
+    },
+
+    {
+      "id": 206,
+      "name": "Lilmix",
+      "nationality": "Sweden",
+      "region": "EU",
+      "ranking": 206,
+      "players": ["quix", "bq", "bsover", "doobs", "zyyx"]
+    },
+
+    {
+      "id": 207,
+      "name": "Lazer Cats",
+      "nationality": "Ukraine",
+      "region": "EU",
+      "ranking": 207,
+      "players": ["Templ", "MAGILA", "yab0ku-", "nikitea", "Magic"]
+    },
+
+    {
+      "id": 208,
+      "name": "CS2News Ladies*",
+      "nationality": "Russia",
+      "region": "EU",
+      "ranking": 208,
+      "players": ["Stormy", "Margo", "v1spel", "irbitka", "emocore"]
+    },
+
+    {
+      "id": 209,
+      "name": "HAVU",
+      "nationality": "Finland",
+      "region": "EU",
+      "ranking": 209,
+      "players": ["uli", "Alxc", "p3kko", "puuha", "ottob"]
+    },
+
+    {
+      "id": 210,
+      "name": "FlyQuest RED",
+      "nationality": "International",
+      "region": "NA",
+      "ranking": 210,
+      "players": ["GooseBreeder", "Emy", "BiBiAhn", "vanessa", "marie"]
+    },
+
+    {
+      "id": 211,
+      "name": "K23**",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 211,
+      "players": ["supra", "FinigaN", "Pipw", "Resoluxe", "s1natoRRR"]
+    },
+
+    {
+      "id": 212,
+      "name": "normercy fe*",
+      "nationality": "Russia",
+      "region": "EU",
+      "ranking": 212,
+      "players": ["unknxwn", "aiveri", "meo", "akiyanora", "turboxgirl"]
+    },
+
+    {
+      "id": 213,
+      "name": "MEGA JUNERS*",
+      "nationality": "USA",
+      "region": "NA",
+      "ranking": 213,
+      "players": ["ARIANACHIST", "Lexa", "AuroraVeee", "Quacko", "AuhnaNaki"]
+    },
+
+    {
+      "id": 214,
+      "name": "Prototype Blaze*",
+      "nationality": "France",
+      "region": "EU",
+      "ranking": 214,
+      "players": ["Monkey D Julie", "Emerald", "Kaoday", "ASTRA", "RacheLL"]
+    },
+
+    {
+      "id": 215,
+      "name": "DXA",
+      "nationality": "Australia",
+      "region": "AUS",
+      "ranking": 215,
+      "players": ["Crunchy", "Kiyo", "ComPlex", "helix", "prakM"]
+    },
+
+    {
+      "id": 216,
+      "name": "paiN Academy",
+      "nationality": "Brazil",
+      "region": "SA",
+      "ranking": 216,
+      "players": ["deemO", "legy", "Tatu", "Markz", "tsug"]
+    },
+
+    {
+      "id": 217,
+      "name": "Victores Sumus",
+      "nationality": "India",
+      "region": "ASIA",
+      "ranking": 217,
+      "players": ["Recoilmaster", "Benzene", "ChAmP", "arakyN", "RaYzEr"]
+    },
+
+    {
+      "id": 218,
+      "name": "9z Academy",
+      "nationality": "Brazil",
+      "region": "SA",
+      "ranking": 218,
+      "players": ["zock9", "MaxOff", "neozix", "lezy", "rw"]
+    },
+
+    {
+      "id": 219,
+      "name": "st4rboys",
+      "nationality": "Pakistan",
+      "region": "ASIA",
+      "ranking": 219,
+      "players": ["hf", "An3l10w0w", "Scoffic", "Sharpshooter", "Bloody"]
+    },
+
+    {
+      "id": 220,
+      "name": "VELOX",
+      "nationality": "Argentina",
+      "region": "SA",
+      "ranking": 220,
+      "players": ["JonY BoY", "tutehen", "nbl", "maaxg1", "timo"]
+    },
+
+    {
+      "id": 221,
+      "name": "Big W",
+      "nationality": "India",
+      "region": "ASIA",
+      "ranking": 221,
+      "players": ["SpawN", "Crazy_Gamer", "CycloneF", "N1kace", "hattyg0D"]
+    },
+
+    {
+      "id": 222,
+      "name": "Alternate aTTaX",
+      "nationality": "Germany",
+      "region": "EU",
+      "ranking": 222,
+      "players": ["Askan", "Cl34v3rs", "OneLion", "FoG", "hayanh"]
+    },
+
+    {
+      "id": 223,
+      "name": "MOUZ NXT",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 223,
+      "players": ["Blick", "Cliqq", "Jorko", "xelex", "shield*"]
+    },
+
+    {
+      "id": 224,
+      "name": "G2 Ares",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 224,
+      "players": ["fNK", "tAk", "ketsuo", "kl1m", "hitori"]
+    },
+
+
+
+
+
+
+
+
+
+
+
+    {
+      "id": 225,
+      "name": "Vitality Academy",
+      "nationality": "France",
+      "region": "EU",
+      "ranking": 225,
+      "players": ["AMANEK", "Kyojin", "Python", "SBT", "SIXER"]
+    },
+
+    {
+      "id": 226,
+      "name": "Faze Ignite",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 226,
+      "players": ["Blick", "Cliqq", "Jorko", "xelex", "shield*"]
+    }
+  ]
+}
