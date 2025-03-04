@@ -302,7 +302,7 @@ int main() {
 
     map<string, PlayerStats> playerStatsMap; // Store cumulative stats for each player
 
-    for (int sim = 0; sim < NUM_SIMULATIONS; sim++) {
+/*    for (int sim = 0; sim < NUM_SIMULATIONS; sim++) {
         // **Recreate teams every simulation to reset data**
         Team team1("FaZe", "International");
         team1.addPlayer(Player("Frozen", "Rifler", "Slovakia", 93, 87, 91, 87, 90, 60, 80, 90,PlayerStyle::Balanced,{"Leader", "Selfish"}));
@@ -387,7 +387,18 @@ int main() {
     cout << "Navi Record: " << naviWins << " Wins | " << naviLosses << " Losses | Win %: "
          << (static_cast<double>(naviWins) / NUM_SIMULATIONS) * 100.0 << "%" << endl;
     cout << "Spirit Record: " << spiritWins << " Wins | " << spiritLosses << " Losses | Win %: "
-         << (static_cast<double>(spiritWins) / NUM_SIMULATIONS) * 100.0 << "%" << endl;
+         << (static_cast<double>(spiritWins) / NUM_SIMULATIONS) * 100.0 << "%" << endl; */
+
+    Player player1("broky", "AWP", "Latvia", 91, 87, 87, 83, 65, 95, 82, 85, PlayerStyle::Aggressive, {"Clutch Master"});
+    Player player2("frozen", "Rifler", "Slovokia", 93, 87, 91, 87, 90, 50, 80, 90, PlayerStyle::Passive, {"Team Player"});
+    Player player3("EliGE", "Rifler", "USA", 92, 85, 86, 82, 75, 50, 60, 85, PlayerStyle::Balanced, {"Quick Learner", "Toxic", "Stubborn"});
+    Player player4("rain-", "Support", "Norway", 87, 85, 84, 80, 74, 50, 60, 83, PlayerStyle::Passive, {"Team Player", "Supportive"});
+    Player player5("karrigan", "IGL", "Denmark", 75, 72, 99, 99, 50, 50, 55, 80, PlayerStyle::Aggressive, {"Leader", "Tactical Genius", "Master Communicator"});
+    cout << "Player1 Overall: " <<player1.getAdjustedOverallRating() << endl;
+    cout << "Player2 Overall: " <<player2.getAdjustedOverallRating() << endl;
+    cout << "Player3 Overall: " <<player3.getAdjustedOverallRating() << endl;
+    cout << "Player4 Overall: " <<player4.getAdjustedOverallRating() << endl;
+    cout << "Player5 Overall: " <<player5.getAdjustedOverallRating();
 
     return 0;
 }
