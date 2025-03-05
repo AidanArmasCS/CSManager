@@ -389,16 +389,19 @@ int main() {
     cout << "Spirit Record: " << spiritWins << " Wins | " << spiritLosses << " Losses | Win %: "
          << (static_cast<double>(spiritWins) / NUM_SIMULATIONS) * 100.0 << "%" << endl; */
 
-    Player player1("broky", "AWP", "Latvia", 91, 87, 87, 83, 65, 95, 82, 85, PlayerStyle::Aggressive, {"Clutch Master"});
-    Player player2("frozen", "Rifler", "Slovokia", 93, 87, 91, 87, 90, 50, 80, 90, PlayerStyle::Passive, {"Team Player"});
-    Player player3("EliGE", "Rifler", "USA", 92, 85, 86, 82, 75, 50, 60, 85, PlayerStyle::Balanced, {"Quick Learner", "Toxic", "Stubborn"});
-    Player player4("rain-", "Support", "Norway", 87, 85, 84, 80, 74, 50, 60, 83, PlayerStyle::Passive, {"Team Player", "Supportive"});
-    Player player5("karrigan", "IGL", "Denmark", 75, 72, 99, 99, 50, 50, 55, 80, PlayerStyle::Aggressive, {"Leader", "Tactical Genius", "Master Communicator"});
-    cout << "Player1 Overall: " <<player1.getAdjustedOverallRating() << endl;
-    cout << "Player2 Overall: " <<player2.getAdjustedOverallRating() << endl;
-    cout << "Player3 Overall: " <<player3.getAdjustedOverallRating() << endl;
-    cout << "Player4 Overall: " <<player4.getAdjustedOverallRating() << endl;
-    cout << "Player5 Overall: " <<player5.getAdjustedOverallRating();
+    Player player1("Niko", "Rifler", "Bosnia", 97, 95, 96, 97, 96, 50, 90, 99, PlayerStyle::Aggressive,{"Aim Demon", "Leader"});
+    Player player2("TeSeS", "Entry", "Denmark", 86, 80, 76, 80, 85, 50, 71, 86, PlayerStyle::Passive,{"Supportive", "Team Player"});
+    Player player3("degster", "AWP", "Russia", 82, 80, 84, 83, 64, 84, 60, 82, PlayerStyle::Balanced, {"Selfish"});
+    Player player4("Magisk", "Support", "Denmark", 80, 82, 86, 85, 60, 50, 71, 84, PlayerStyle::Passive, {"Disciplined", "Team Player"});
+    Player player5("kyxsan", "IGL", "Macedonia", 60, 63, 80, 84, 76, 50, 68, 82, PlayerStyle::Aggressive,{"Supportive", "Team Player"});
+
+
+    cout << player1.getName() << " Overall: " <<player1.getAdjustedOverallRating() << endl;
+    cout << player2.getName() << " Overall: " <<player2.getAdjustedOverallRating() << endl;
+    cout << player3.getName() << " Overall: " <<player3.getAdjustedOverallRating() << endl;
+    cout << player4.getName() << " Overall: " <<player4.getAdjustedOverallRating() << endl;
+    cout << player5.getName() << " Overall: " <<player5.getAdjustedOverallRating();
+
 
     return 0;
 }

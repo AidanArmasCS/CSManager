@@ -2042,6 +2042,87 @@
       "nationality": "International",
       "region": "EU",
       "ranking": 226,
+      "players": ["Licale", "MistR", "refrezh", "NBK", "nicoodoz"]
+    },
+
+    {
+      "id": 227,
+      "name": "VP.Prodigy",
+      "nationality": "Russia",
+      "region": "EU",
+      "ranking": 227,
+      "players": ["fozil", "H4SAN4TOR", "sowalio", "Kaide", "mo0N"]
+    },
+
+    {
+      "id": 228,
+      "name": "Team Liquid Academy",
+      "nationality": "USA",
+      "region": "NA",
+      "ranking": 223,
+      "players": ["ben1337", "FaNg", "viz", "d4rty", "ogwizard"]
+    },
+
+    {
+      "id": 229,
+      "name": "FURIA Academy",
+      "nationality": "Brazil",
+      "region": "SA",
+      "ranking": 229,
+      "players": ["cerolzin", "GYZER", "Jotag3", "souz4h", "max"]
+    },
+
+    {
+      "id": 230,
+      "name": "BIG Academy",
+      "nationality": "Germany",
+      "region": "EU",
+      "ranking": 230,
+      "players": ["xicoz", "k1to", "Bymas", "FreeZe", "prosus"]
+    },
+
+    {
+      "id": 231,
+      "name": "Complexity Stars",
+      "nationality": "USA",
+      "region": "NA",
+      "ranking": 231,
+      "players": ["tatm", "corn", "flixxy", "JDubs", "DacS"]
+    },
+
+    {
+      "id": 232,
+      "name": "OG Academy",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 232,
+      "players": ["shaiK", "Dementor", "misutaaa", "CacaNito", "CRUC1AL"]
+    },
+
+    {
+      "id": 233,
+      "name": "fnatic Rising",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 233,
+      "players": ["Peppzor", "Maze", "DEPRESHN", "kst", "Kevve"]
+    },
+
+    {
+      "id": 234,
+      "name": "NRG Academy",
+      "nationality": "USA",
+      "region": "NA",
+      "ranking": 234,
+      "players": ["Walco", "jitter", "Wilky", "silas", "walker"]
+    },
+
+    {
+      "id": 223,
+      "name": "MOUZ NXT",
+      "nationality": "International",
+      "region": "EU",
+      "ranking": 223,
       "players": ["Blick", "Cliqq", "Jorko", "xelex", "shield*"]
     }
   ]
