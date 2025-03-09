@@ -3,7 +3,6 @@
 #include <map>
 #include <ctime>
 #include <cmath>
-#include <iomanip>
 #include "Match.h"
 #include "Team.h"
 #include "Player.h"
@@ -33,7 +32,7 @@ void addTeam(vector<Team> &teams) { // METHOD FOR ADDING TEAMS
         }
     }
 
-    teams.push_back(Team(teamName, teamNationality));
+    teams.emplace_back(teamName, teamNationality);
     cout << "Team " << teamName << " added successfully!\n";
 }
 
@@ -283,7 +282,7 @@ void displayTeamRecord(vector<Team> &teams) {
 int main() {
     srand(time(0)); // RANDOM EVERY TIME
 
-    const int NUM_SIMULATIONS = 10; // Number of simulations
+  /*  const int NUM_SIMULATIONS = 10; // Number of simulations
 
     int naviWins = 0;
     int spiritWins = 0;
@@ -302,7 +301,7 @@ int main() {
 
     map<string, PlayerStats> playerStatsMap; // Store cumulative stats for each player
 
-/*    for (int sim = 0; sim < NUM_SIMULATIONS; sim++) {
+    for (int sim = 0; sim < NUM_SIMULATIONS; sim++) {
         // **Recreate teams every simulation to reset data**
         Team team1("FaZe", "International");
         team1.addPlayer(Player("Frozen", "Rifler", "Slovakia", 93, 87, 91, 87, 90, 60, 80, 90,PlayerStyle::Balanced,{"Leader", "Selfish"}));
@@ -389,11 +388,11 @@ int main() {
     cout << "Spirit Record: " << spiritWins << " Wins | " << spiritLosses << " Losses | Win %: "
          << (static_cast<double>(spiritWins) / NUM_SIMULATIONS) * 100.0 << "%" << endl; */
 
-    Player player1("Niko", "Rifler", "Bosnia", 97, 95, 96, 97, 96, 50, 90, 99, PlayerStyle::Aggressive,{"Aim Demon", "Leader"});
-    Player player2("TeSeS", "Entry", "Denmark", 86, 80, 76, 80, 85, 50, 71, 86, PlayerStyle::Passive,{"Supportive", "Team Player"});
-    Player player3("degster", "AWP", "Russia", 82, 80, 84, 83, 64, 84, 60, 82, PlayerStyle::Balanced, {"Selfish"});
-    Player player4("Magisk", "Support", "Denmark", 80, 82, 86, 85, 60, 50, 71, 84, PlayerStyle::Passive, {"Disciplined", "Team Player"});
-    Player player5("kyxsan", "IGL", "Macedonia", 60, 63, 80, 84, 76, 50, 68, 82, PlayerStyle::Aggressive,{"Supportive", "Team Player"});
+    Player player1("FL1T", "Lurker", "Russia", 85, 78, 84, 79, 70, 50, 72, 83, PlayerStyle::Aggressive,{"Versatile"});
+    Player player2("ICY", "AWP", "Kazkhstan", 81, 82, 80, 81, 62, 84, 83, 82, PlayerStyle::Passive,{"Clutch Master"});
+    Player player3("electroNic", "IGL", "Russia", 83, 76, 86, 87, 76, 50, 60, 85, PlayerStyle::Balanced, {"Leader"});
+    Player player4("fame", "Rifler", "Russia", 81, 75, 80, 84, 75, 50, 70, 76, PlayerStyle::Passive, {"Supportive", "Team Player"});
+    Player player5("FL4MUS", "Rifler", "Russia", 85, 80, 80, 78, 70, 50, 67, 83, PlayerStyle::Aggressive,{"Versatile"});
 
 
     cout << player1.getName() << " Overall: " <<player1.getAdjustedOverallRating() << endl;

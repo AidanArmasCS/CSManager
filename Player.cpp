@@ -6,7 +6,6 @@
 #include <vector>
 #include <string>
 #include <iostream>
-#include <Trait.h>
 #include <unordered_map>
 
 using namespace std;
@@ -82,7 +81,7 @@ int Player::getTeamwork() const { return teamwork; }
 
 
 int Player::getAdjustedOverallRating() { // ADJUSTS THE PLAYERS RATINGS BASED OFF OF THE PLAYERS TRAITS
-    double adjustedRating = 0.0;
+    double adjustedRating;
 
 
     //MAP TRAITS

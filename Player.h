@@ -64,7 +64,7 @@ public:
     void setMatchADR(double adr) {
         matchADR = adr;
     }
-    double getMatchADR() { return matchADR; }
+    double getMatchADR() const { return matchADR; }
     int getMatchKills() const { return matchKills; }
     int getMatchDeaths() const { return matchDeaths; }
     int getMatchAssists() const { return matchAssists; }

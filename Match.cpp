@@ -7,7 +7,6 @@
 #include <vector>
 #include <string>
 #include <iostream>
-#include <Team.h>
 #include <algorithm>
 
 using namespace std;
@@ -386,7 +385,7 @@ void Match::simulateRounds() {
     }
 }
 
-double Match::simulateMatchRatings(Player* playerName) {
+double Match::simulateMatchRatings(Player* playerName) const {
     double totalRounds = team1score + team2score;
 
     if (totalRounds == 0) return 0;

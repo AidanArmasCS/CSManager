@@ -7,7 +7,6 @@
 #include <string>
 #include <iostream>
 #include <algorithm>
-#include <cmath>
 
 class Player;
 
