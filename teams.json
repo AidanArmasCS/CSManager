@@ -321,7 +321,7 @@
       "nationality": "International",
       "region": "EU",
       "ranking": 36,
-      "players": ["F1KU", "Chr1zN", "Buzz", "spooke", "afro"]
+      "players": ["F1KU", "Chr1zN", "Buzz", "spooke", "nicoodoz"]
     },
 
     {
@@ -600,7 +600,7 @@
       "nationality": "Australia",
       "region": "AUS",
       "ranking": 67,
-      "players": ["keen", "Valiance", "shadiy", "SaVage", "vision"]
+      "players": ["keen", "Valiance", "shadiy", "SaVage", "aliStair"]
     },
 
     {
@@ -636,7 +636,7 @@
       "nationality": "USA",
       "region": "NA",
       "ranking": 71,
-      "players": ["RUSH", "junior", "Crpytic", "Peeping", "Infinite*"]
+      "players": ["RUSH", "junior", "Cryptic", "Peeping", "Infinite"]
     },
 
     {
@@ -1030,7 +1030,7 @@
       "id": 115,
       "name": "HOTU",
       "nationality": "Russia",
-      "region": "EU",
+      "region": "ASIA",
       "ranking": 115,
       "players": ["kade0", "Re1GN", "mizu", "lampada", "youka"]
     },
@@ -2042,7 +2042,7 @@
       "nationality": "International",
       "region": "EU",
       "ranking": 226,
-      "players": ["Licale", "MistR", "refrezh", "NBK", "nicoodoz"]
+      "players": ["Licale", "MistR", "refrezh", "NBK", "MoDo"]
     },
 
     {
