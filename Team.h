@@ -19,12 +19,13 @@ private:
     vector<Player> roster;
     int wins;
     int losses;
+    int ranking;
     string nationality;
 
 
 public:
     //Constructor
-    Team(const string &teamName, const string &usernationality);
+    Team(const string &teamName, const string &usernationality, int reamRanking);
     //Destructor
     ~Team();
 
@@ -34,6 +35,8 @@ public:
     string getName() const;
     string getNationality() const;
     int getTeamChemistry() const;
+    int getTeamRanking() const;
+    void setTeamRanking(int teamRanking);
 
 
     //TEAM VIEWING

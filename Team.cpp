@@ -12,11 +12,13 @@ class Player;
 
 using namespace std;
 
-Team::Team(const string &teamName, const string &usernationality) {
+Team::Team(const string &teamName, const string &usernationality, int teamRanking) {
     name = teamName;
     wins = 0;
     losses = 0;
     nationality = usernationality;
+    ranking = teamRanking;
+
 }
 
 Team::~Team() {}
@@ -29,6 +31,14 @@ string Team::getName() const { // METHOD FOR RETURNING TEAM NAME
 }
 string Team::getNationality() const {
     return nationality;
+}
+
+int Team::getTeamRanking() const {
+    return ranking;
+}
+
+void Team::setTeamRanking(int teamRanking) {
+    ranking = teamRanking;
 }
 
 
@@ -99,8 +109,12 @@ int Team::getTeamOverallRating() const {
     double totalRating = 0;
 
     for (size_t i = 0; i < playerRatings.size(); i++) {
-        if (i < 3)  // Top 3 players get a 1.1x boost
+        if (i == 0) {  // Top player get a 1.2x boost
+            totalRating += playerRatings[i] * 1.2;
+        }
+        else if (i == 1 || i == 2) { // 2nd and 3rd player get 1.1x boost
             totalRating += playerRatings[i] * 1.1;
+        }
         else  // Bottom 2 players get a 0.9x reduction
             totalRating += playerRatings[i] * 0.9;
     }

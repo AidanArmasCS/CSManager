@@ -18,6 +18,17 @@ enum class PlayerStyle { // PLAYER STYLES STORAGE
     Balanced
 };
 
+// **Cumulative player stats**
+// **Cumulative player stats including HLTV Rating & ADR**
+struct PlayerStats {
+    int totalKills = 0;
+    int totalDeaths = 0;
+    int totalAssists = 0;
+    double totalHLTV = 0.0;
+    double totalADR = 0.0;
+    int matchesPlayed = 0;
+};
+
 
 
 class Player {
