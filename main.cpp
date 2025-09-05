@@ -3,9 +3,9 @@
 #include <map>
 #include <ctime>
 #include <cmath>
-#include "Match.h"
-#include "Team.h"
-#include "Player.h"
+#include "core/Match.h"
+#include "core/Team.h"
+#include "core/Player.h"
 #include "Tournament.h"
 
 using namespace std;

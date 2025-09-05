@@ -3,8 +3,8 @@
 //
 
 #include "Tournament.h"
-#include "Match.h"
-#include "Team.h"
+#include "core/Match.h"
+#include "core/Team.h"
 #include <cmath>
 #include <iomanip>
 

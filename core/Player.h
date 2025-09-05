@@ -8,7 +8,7 @@
 #include <utility>
 #include <vector>
 #include <string>
-#include <Trait.h>
+#include <core/Trait.h>
 
 using namespace std;
 

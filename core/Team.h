@@ -25,7 +25,7 @@ private:
 
 public:
     //Constructor
-    Team(const string &teamName, const string &usernationality, int reamRanking);
+    Team(const string &teamName, const string &usernationality, int teamRanking);
     //Destructor
     ~Team();
 

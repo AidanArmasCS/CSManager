@@ -5,9 +5,9 @@
 #ifndef CSMANAGER_TOURNAMENT_H
 #define CSMANAGER_TOURNAMENT_H
 
-#include "Team.h"
-#include "Match.h"
-#include "Player.h"
+#include "core/Team.h"
+#include "core/Match.h"
+#include "core/Player.h"
 #include <vector>
 #include <map>
 #include <string>

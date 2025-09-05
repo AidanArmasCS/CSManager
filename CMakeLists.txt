@@ -7,14 +7,24 @@ include_directories(.)
 
 add_executable(CSManager
         main.cpp
-        Match.cpp
-        Match.h
-        Player.cpp
-        Player.h
-        Team.cpp
-        Team.h
-        Trait.h
-        Trait.cpp
+        core/Match.cpp
+        core/Match.h
+        core/Player.cpp
+        core/Player.h
+        core/Team.cpp
+        core/Team.h
+        core/Trait.h
+        core/Trait.cpp
         Tournament.cpp
         Tournament.h
-        Tournament.h)
+        Tournament.h
+        simulation/MatchSimulator.cpp
+        simulation/MatchSimulator.h
+        simulation/StatTracker.cpp
+        simulation/StatTracker.h
+        data/DataLoader.cpp
+        data/DataLoader.h
+        ui/MenuManager.cpp
+        ui/MenuManager.h
+        ui/DisplayUtils.cpp
+        ui/DisplayUtils.h)

@@ -2115,15 +2115,6 @@
       "region": "NA",
       "ranking": 234,
       "players": ["Walco", "jitter", "Wilky", "silas", "walker"]
-    },
-
-    {
-      "id": 223,
-      "name": "MOUZ NXT",
-      "nationality": "International",
-      "region": "EU",
-      "ranking": 223,
-      "players": ["Blick", "Cliqq", "Jorko", "xelex", "shield*"]
     }
   ]
 }
