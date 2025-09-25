@@ -27,4 +27,9 @@ add_executable(CSManager
         ui/MenuManager.cpp
         ui/MenuManager.h
         ui/DisplayUtils.cpp
-        ui/DisplayUtils.h)
+        ui/DisplayUtils.h
+        core/PlayerStyle.h
+        stats/MatchStats.h
+        stats/PlayerStats.h
+        stats/TraitEffects.cpp
+        stats/TraitEffects.h)
