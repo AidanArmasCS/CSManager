@@ -1,0 +1,3 @@
+/Users/aidanarmas/CLionProjects/MACCSManager/cmake-build-debug/CMakeFiles/MACCSManager.dir
+/Users/aidanarmas/CLionProjects/MACCSManager/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/aidanarmas/CLionProjects/MACCSManager/cmake-build-debug/CMakeFiles/rebuild_cache.dir
