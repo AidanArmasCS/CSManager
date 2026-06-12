@@ -5,12 +5,14 @@
 #include "core/Player.h"
 #include "core/Team.h"
 #include "core/MatchResult.h"
+#include "core/GameWorld.h"
 #include "engine/Tournament.h"
 #include "engine/RatingCalculator.h"
 #include <iostream>
 #include <iomanip>
 #include <vector>
 #include <ctime>
+#include <limits>
 
 using namespace std;
 
@@ -268,48 +270,59 @@ Team makeGodsReign() {
     return t;
 }
 
+Team makeEnvy() {
+    Team t("Envy", "International", 49);
+    t.addPlayer(Player("siuhy", "IGL", "Poland", 68, 68, 87, 90, 65, 50, 53, 80, PlayerStyle::Balanced, {"Tactical Genius"}));
+    t.addPlayer(Player("Perfecto", "Support", "Russia", 78, 75, 80, 84, 60, 50, 82, 84, PlayerStyle::Passive, {"Team Player"}));
+    t.addPlayer(Player("k0nfig", "Rifler", "Denmark", 80, 72, 74, 77, 67, 50, 60, 80, PlayerStyle::Balanced, {}));
+    t.addPlayer(Player("dupreeh", "Rifler", "Denmark", 76, 70, 77, 80, 64, 50, 60, 75, PlayerStyle::Balanced, {}));
+    t.addPlayer(Player("GuardiaN", "AWP", "Slovakia", 57, 58, 70, 70, 50, 73, 54, 65, PlayerStyle::Passive, {}));
+    return t;
+}
+
+// ============================================================
+//  WORLD SETUP
+// ============================================================
+
+// Builds the game world: every team plus the player's chosen club.
+// This is the data the whole game runs on; the UI never builds teams
+// directly, it just reads them back out of the GameWorld.
+GameWorld buildWorld() {
+    GameWorld world;
+    world.addTeam(makeSpirit());
+    world.addTeam(makeVitality());
+    world.addTeam(makeFaZe());
+    world.addTeam(makeVirtusProf());
+    world.addTeam(makePaiN());
+    world.addTeam(makeBetBoom());
+    world.addTeam(makeB8());
+    world.addTeam(makeENCE());
+    world.addTeam(makeFnatic());
+    world.addTeam(makeEnvy());
+    world.addTeam(make9Pandas());
+    world.addTeam(makeODDIK());
+    world.addTeam(makeChinggis());
+    world.addTeam(makeExceritus());
+    world.addTeam(makeNomadS());
+    world.addTeam(makeGodsReign());
+
+    // Default the player's club to Spirit for now (later: a pick screen).
+    world.setMyTeam("Spirit");
+    return world;
+}
+
 // ============================================================
 //  MAIN
 // ============================================================
 
-int main() {
-    srand(time(0));
-
-    // Build 16 teams across all tiers
-    Team spirit    = makeSpirit();
-    Team vitality  = makeVitality();
-    Team faze      = makeFaZe();
-    Team vp        = makeVirtusProf();
-    Team pain      = makePaiN();
-    Team betboom   = makeBetBoom();
-    Team b8        = makeB8();
-    Team ence      = makeENCE();
-    Team fnatic    = makeFnatic();
-    Team pandas    = make9Pandas();
-    Team oddik     = makeODDIK();
-    Team chinggis  = makeChinggis();
-    Team exceritus = makeExceritus();
-    Team nomads    = makeNomadS();
-    Team godsreign = makeGodsReign();
-
-    // Need 16 — add one more mid-tier
-    Team envy("Envy", "International", 49);
-    envy.addPlayer(Player("siuhy", "IGL", "Poland", 68, 68, 87, 90, 65, 50, 53, 80, PlayerStyle::Balanced, {"Tactical Genius"}));
-    envy.addPlayer(Player("Perfecto", "Support", "Russia", 78, 75, 80, 84, 60, 50, 82, 84, PlayerStyle::Passive, {"Team Player"}));
-    envy.addPlayer(Player("k0nfig", "Rifler", "Denmark", 80, 72, 74, 77, 67, 50, 60, 80, PlayerStyle::Balanced, {}));
-    envy.addPlayer(Player("dupreeh", "Rifler", "Denmark", 76, 70, 77, 80, 64, 50, 60, 75, PlayerStyle::Balanced, {}));
-    envy.addPlayer(Player("GuardiaN", "AWP", "Slovakia", 57, 58, 70, 70, 50, 73, 54, 65, PlayerStyle::Passive, {}));
-
-    vector<const Team*> allTeams = {
-            &spirit, &vitality, &faze, &vp,
-            &pain, &betboom, &b8, &ence,
-            &fnatic, &envy, &pandas, &oddik,
-            &chinggis, &exceritus, &nomads, &godsreign
-    };
-
-    // ============================================================
-    //  CREATE AND RUN TOURNAMENT
-    // ============================================================
+// ============================================================
+//  EXHIBITION TOURNAMENT (runs the engine + prints results)
+// ============================================================
+// Pulls every team out of the world, runs one full tournament, and
+// prints the results using the display helpers above. This is the old
+// main() body, now a menu action rather than the whole program.
+void runExhibitionTournament(const GameWorld& world) {
+    vector<const Team*> allTeams = world.getTeamPointers();
 
     Tournament tournament("BLAST World Final 2025", TournamentFormat::Groups,
                           allTeams, 2000000, "Copenhagen", "Nov 15, 2025", "S-Tier");
@@ -459,11 +472,88 @@ int main() {
     //  INTEGRITY CHECK
     // ============================================================
     cout << "\n--- Integrity Check ---" << endl;
-    cout << "  donk aim: " << spirit.getRoster()[0].getAim() << " (99)" << endl;
-    cout << "  Zyw0o aim: " << vitality.getRoster()[0].getAim() << " (99)" << endl;
-    cout << "  CRYTICAL aim: " << nomads.getRoster()[4].getAim() << " (32)" << endl;
+    cout << "  Teams in world: " << allTeams.size() << endl;
     cout << "  Total matches played: " << tournament.getAllMatches().size() << endl;
     cout << "  Placements count: " << tournament.getPlacements().size() << endl;
+}
+
+// ============================================================
+//  GAME LOOP (temporary text UI — throwaway scaffolding)
+// ============================================================
+// This menu is a placeholder so the world is playable now. The real
+// UI (graphical, FM/mobile-style) will replace it later by reading the
+// same GameWorld data. Keep all game logic out of here.
+
+void printStatus(const GameWorld& world) {
+    cout << "\n================================================================" << endl;
+    cout << "  CSManager" << endl;
+    cout << "  Date: " << world.getCalendar().toString() << endl;
+    const Team* my = world.getMyTeam();
+    cout << "  Your club: " << (my ? my->getName() : "(none)")
+         << "  |  Teams in world: " << world.getTeamCount() << endl;
+    cout << "================================================================" << endl;
+}
+
+void printMenu() {
+    cout << "\n  [1] Advance 1 day" << endl;
+    cout << "  [2] Advance 1 week" << endl;
+    cout << "  [3] View your roster" << endl;
+    cout << "  [4] View all teams" << endl;
+    cout << "  [5] Run exhibition tournament" << endl;
+    cout << "  [0] Quit" << endl;
+    cout << "  Choose: ";
+}
+
+int main() {
+    srand(time(0));
+
+    GameWorld world = buildWorld();
+
+    cout << "Welcome to CSManager." << endl;
+
+    bool running = true;
+    while (running) {
+        printStatus(world);
+        printMenu();
+
+        int choice;
+        if (!(cin >> choice)) {
+            // EOF or bad input — exit cleanly rather than looping forever.
+            cout << "\nNo more input. Exiting." << endl;
+            break;
+        }
+
+        switch (choice) {
+            case 1:
+                world.advanceDay();
+                cout << "  -> Advanced to " << world.getCalendar().toString() << endl;
+                break;
+            case 2:
+                world.advanceDays(7);
+                cout << "  -> Advanced to " << world.getCalendar().toString() << endl;
+                break;
+            case 3: {
+                const Team* my = world.getMyTeam();
+                if (my) my->displayRoster();
+                else cout << "  No club selected." << endl;
+                break;
+            }
+            case 4:
+                for (const Team& t : world.getTeams())
+                    printTeamRating(t);
+                break;
+            case 5:
+                runExhibitionTournament(world);
+                break;
+            case 0:
+                running = false;
+                cout << "  Goodbye." << endl;
+                break;
+            default:
+                cout << "  Unknown option." << endl;
+                break;
+        }
+    }
 
     return 0;
 }

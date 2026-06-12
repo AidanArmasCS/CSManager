@@ -13,6 +13,10 @@ add_executable(MACCSManager main.cpp
         core/MatchResult.h
         core/Team.cpp
         core/Team.h
+        core/Calendar.cpp
+        core/Calendar.h
+        core/GameWorld.cpp
+        core/GameWorld.h
         engine/RatingCalculator.cpp
         engine/RatingCalculator.h
         engine/Hltvcalculator.cpp
